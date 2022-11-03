@@ -64,7 +64,6 @@
         out.println("</tr>");
     }
 
-
     out.println("</form>");
     out.print("</div>");
     sqlSession.close();

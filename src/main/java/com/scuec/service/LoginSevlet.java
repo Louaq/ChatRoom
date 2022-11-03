@@ -37,7 +37,7 @@ public class LoginSevlet extends HttpServlet {
 
         //用户名存储到session中
         request.getSession().setAttribute("nameSession",username);
-        //设置session的有效时间
+        //设置session的有效时间60s
         request.getSession().setMaxInactiveInterval(60);
 
 

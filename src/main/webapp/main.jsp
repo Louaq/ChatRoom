@@ -20,12 +20,19 @@
             width: 100%;
             margin: 0 auto;
         }
+        #exitlogin {
+            width: 100px;
+            height: 30px;
+
+        }
     </style>
 
 </head>
 <body>
 
 <div>
+    <%--点击按钮，销毁session对象，实现退出登录--%>
+
     <iframe src="message.jsp" width="100%" height="50%"></iframe>
 
     <iframe src="input.jsp" width="100%" height="30%"></iframe>
@@ -34,6 +41,11 @@
 
 </div>
 
+<div id="exitlogin">
+    <form action="ExitAccountServlet" method="post" style="width:100px;margin-top: -25px">
+        <input type="button" value="退出登录" style="width: 100px; height: 40px;font-size: 21px">
+    </form>
+</div>
 
 </body>
 </html>

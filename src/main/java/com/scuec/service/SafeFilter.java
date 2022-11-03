@@ -20,11 +20,11 @@ public class SafeFilter implements Filter {
         //判断访问资源的路径是否和登录注册相关
         String uri = req.getRequestURI();
         //如果是登录注册相关的资源，放行
-        if (uri.contains("/index.jsp") || uri.contains("/login.jsp") || uri.contains("/login") || uri.contains("/register.jsp") || uri.contains("/Register") || uri.contains("/images") || uri.contains("/css/") || uri.contains("/js/")) {
+        if (uri.contains("/index.jsp") || uri.contains("/index.jsp/login.jsp") || uri.contains("/index.jsp/login") || uri.contains("/index.jsp/register.jsp") || uri.contains("/index.jsp/Register") || uri.contains("/images") || uri.contains("/css/") || uri.contains("/js/")) {
 
             filterChain.doFilter(servletRequest, servletResponse);
 
-        } else {
+        } else{
             //判断是否登录
             HttpSession session = req.getSession();
             Object user = session.getAttribute("nameSession");

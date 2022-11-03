@@ -24,7 +24,7 @@
 
     %>
 
-        <%=application.getAttribute("count")%>
+        <%--<%=application.getAttribute("count")%>--%>
 
 <%--    <%
         int count = 0;

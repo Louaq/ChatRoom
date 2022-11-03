@@ -29,7 +29,6 @@ public class ShopTest {
         for (Shop shop : shops) {
             System.out.println(shop);
         }
-
         sqlSession.close();
 
 
