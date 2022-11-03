@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.scuec.service.mapper.ShopMapper">
+
+
+    <select id="selectShops" resultType="shop">
+        select * from goods;
+    </select>
+    <select id="selectById" resultType="shop">
+        select * from goods where id = #{id};
+    </select>
+
+
+</mapper>
