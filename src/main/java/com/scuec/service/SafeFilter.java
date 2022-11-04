@@ -41,7 +41,6 @@ public class SafeFilter implements Filter {
 
             } else {
                 //跳转到登录页面
-                System.out.println("未登录");
                 req.setAttribute("login_msg", "您尚未登录，请登录");
                 req.getRequestDispatcher("/login.jsp").forward(servletRequest, servletResponse);
             }

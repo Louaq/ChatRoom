@@ -1,0 +1,10 @@
+INSERT INTO `goods` (`id`, `name`, `price`) VALUES (1, '铅笔', 12);
+INSERT INTO `goods` (`id`, `name`, `price`) VALUES (2, '哇哈哈', 23);
+INSERT INTO `goods` (`id`, `name`, `price`) VALUES (3, '可乐', 38);
+INSERT INTO `goods` (`id`, `name`, `price`) VALUES (4, '瓜子', 72);
+INSERT INTO `goods` (`id`, `name`, `price`) VALUES (5, '奶茶', 79);
+INSERT INTO `goods` (`id`, `name`, `price`) VALUES (6, '矿泉水', 70);
+INSERT INTO `goods` (`id`, `name`, `price`) VALUES (7, '华子', 66);
+INSERT INTO `goods` (`id`, `name`, `price`) VALUES (8, '蜜雪冰城', 66);
+INSERT INTO `goods` (`id`, `name`, `price`) VALUES (9, '沪上阿姨', 74);
+INSERT INTO `goods` (`id`, `name`, `price`) VALUES (10, '咖啡', 29);

@@ -4,6 +4,16 @@ public class Shop {
     private int id;
     private String name;
     private int price;
+    //购买数量
+    private int buyNum;
+
+    public int getBuyNum() {
+        return buyNum;
+    }
+
+    public void setBuyNum(int buyNum) {
+        this.buyNum = buyNum;
+    }
 
     public Shop(int id, String name, int price) {
         this.id = id;

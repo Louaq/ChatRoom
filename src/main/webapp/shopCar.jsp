@@ -37,10 +37,6 @@
     </style>
 </head>
 <body>
-<%--结算按钮--%>
-<div id="app" style="margin-left: 687px">
-    <input type="submit" value="结算" width="30px" height="20px">
-</div>
 <%--展示商品区--%>
 <%
     String resource = "mybatis-config.xml";
@@ -56,8 +52,8 @@
         //表格显示
         out.println("<table border='1'>");
         out.println("<tr>");
-        out.println("<td>" + shop.getId() + "</td>");
-        out.println("<td>" + shop.getName() + "</td>");
+        out.println("<td name='id'>" + shop.getId() + "</td>");
+        out.println("<td name='name'>" + shop.getName() + "</td>");
         out.println("<td name='price'>" + shop.getPrice() + "</td>");
         //添加购物车按钮
         out.println("<td><input type='submit' value='添加购物车' width='30px' height='20px'></td>");

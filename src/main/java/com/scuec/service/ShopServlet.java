@@ -1,5 +1,7 @@
 package com.scuec.service;
 
+import com.scuec.service.utils.MyCarUtils;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -17,7 +19,9 @@ public class ShopServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //点击选购商品，获取商品信息，计算总价
+        //获取选购商品的id
+        String id = request.getParameter("id");
+        System.out.println(id);
 
 
 

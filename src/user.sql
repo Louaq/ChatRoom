@@ -1,0 +1,11 @@
+INSERT INTO `user` (`id`, `username`, `password`, `type`) VALUES (1, 'admin', 'admin', 'admin');
+INSERT INTO `user` (`id`, `username`, `password`, `type`) VALUES (2, 'bbb', 'bbb', 'user');
+INSERT INTO `user` (`id`, `username`, `password`, `type`) VALUES (3, 'ccc', 'ccc', 'user');
+INSERT INTO `user` (`id`, `username`, `password`, `type`) VALUES (4, 'ddd', 'ddd', 'user');
+INSERT INTO `user` (`id`, `username`, `password`, `type`) VALUES (5, 'aaa', 'aaa', 'user');
+INSERT INTO `user` (`id`, `username`, `password`, `type`) VALUES (6, '杨杨', '202021091365', 'user');
+INSERT INTO `user` (`id`, `username`, `password`, `type`) VALUES (7, '张三', '123456', 'user');
+INSERT INTO `user` (`id`, `username`, `password`, `type`) VALUES (8, '李四', '888888', 'user');
+INSERT INTO `user` (`id`, `username`, `password`, `type`) VALUES (9, '王五', '12345678', 'user');
+INSERT INTO `user` (`id`, `username`, `password`, `type`) VALUES (10, '赵六', '000000', 'user');
+INSERT INTO `user` (`id`, `username`, `password`, `type`) VALUES (20, 'fff', 'fff', 'user');
