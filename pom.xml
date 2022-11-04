@@ -87,7 +87,7 @@
           <version>3.0.1</version>
           <configuration>
             <port>8080</port>
-            <path>/index.jsp</path>
+            <path>/</path>
           </configuration>
         </plugin>
         <plugin>

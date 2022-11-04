@@ -18,9 +18,9 @@ public class SafeFilter implements Filter {
         servletRequest.setCharacterEncoding("utf-8");
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         //判断访问资源的路径是否和登录注册相关
-        String uri = req.getRequestURI();
+        String url = req.getRequestURL().toString();
         //如果是登录注册相关的资源，放行
-        if (uri.contains("/index.jsp") || uri.contains("/index.jsp/login.jsp") || uri.contains("/index.jsp/login") || uri.contains("/index.jsp/register.jsp") || uri.contains("/index.jsp/Register") || uri.contains("/images") || uri.contains("/css/") || uri.contains("/js/")) {
+        if (url.equals("http://localhost:8080/login.jsp") || url.equals("http://localhost:8080/login") || url.equals("http://localhost:8080/register.jsp") || url.equals("http://localhost:8080/Register") ||url.equals("http://localhost:8080/") || url.contains("/images/") || url.contains("/css/") || url.contains("/js/")) {
 
             filterChain.doFilter(servletRequest, servletResponse);
 
@@ -51,7 +51,6 @@ public class SafeFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-
 
 
     }
