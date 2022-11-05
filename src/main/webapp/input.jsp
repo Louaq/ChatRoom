@@ -23,7 +23,8 @@
                style="width: 100px; height: 40px;font-size: 25px;margin-top: 10px;margin-left:315px"><br>
     </form>
 
-
+    <input type="button" value="退出登录" style="width: 100px; height: 40px">
+    <%--点击按钮，销毁session对象，实现退出登录--%>
     <script>
         var button = document.getElementsByTagName("input")[1];
         button.onclick = function () {

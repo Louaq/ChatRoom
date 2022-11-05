@@ -26,8 +26,6 @@
 <body>
 
 <div>
-
-
     <iframe src="message.jsp" width="100%" height="50%"></iframe>
 
     <iframe src="input.jsp" width="100%" height="30%"></iframe>
@@ -35,6 +33,7 @@
     <iframe id="frame0" src="online.jsp" width="700px" height="100px" style="margin-left: 610px"></iframe>
 
 </div>
+
 
 </body>
 </html>

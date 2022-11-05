@@ -11,6 +11,12 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
 
   <style>
+    .container {
+      width: auto;
+      max-width: 680px;
+      padding: 0 15px;
+    }
+
     .bd-placeholder-img {
       font-size: 1.125rem;
       text-anchor: middle;
@@ -80,9 +86,38 @@
     }
 
     .massageIn {
+      position: relative;
       height: 100px;
       width: 100%;
-      margin-top: -20px;
+      margin-top: 25px;
+      /* background-color: #2470dc; */
+      /* border: #727272 solid 2px; */
+      border-radius: 10px;
+    }
+
+    /* 输入框样式 */
+    .massageIn input {
+      margin-top: 2px;
+      width: 100%;
+      height: 60px;
+      border: #727272 solid 2px;
+      border-radius: 5px;
+      font-size: 20px;
+    }
+
+    /* 发送按钮 */
+    .massageIn button {
+      width: 100px;
+      height: 40px;
+      font-size: 22px;
+      font-family: 'kaiti';
+      font-weight: 700;
+      position: absolute;
+      left: 50%;
+      top: 70%;
+      transform: translateX(-50%);
+      border-radius: 10px;
+      background-color: ivory;
     }
 
     body {
@@ -180,6 +215,15 @@
       border-color: transparent;
       box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
     }
+
+    /* 展示在线朋友 */
+    #showFriend {
+      height: 661px;
+      width: 16.6%;
+      background-color: blanchedalmond;
+      border-right: #727272 solid 3px;
+      display: inline-block;
+    }
   </style>
 
 </head>
@@ -195,44 +239,35 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active" style="height: 220px;">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-          preserveAspectRatio="xMidYMid slice" focusable="false">
-          <rect width="100%" height="100%" fill="#777" />
-        </svg>
+        <img src="./images/cool-background (4).png" alt="">
 
         <div class="container">
           <div class="carousel-caption text-start">
-            <h1>Example headline.</h1>
-            <p>Some representative placeholder content for the first slide of the carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+            <h1>Buyer Forum</h1>
+            <h4>一个专门为年轻人设计的购物&聊天的一站式平台</h4>
+            <h5>Designed by Yang-yang and Tuo-Xiaodong</h5>
           </div>
         </div>
       </div>
       <div class="carousel-item" style="height: 220px;">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-          preserveAspectRatio="xMidYMid slice" focusable="false">
-          <rect width="100%" height="100%" fill="#777" />
-        </svg>
-
+        <!-- 背景图 -->
+        <img src="./images/cool-background (5).png" alt="">
         <div class="container">
           <div class="carousel-caption">
-            <h1>Another example headline.</h1>
-            <p>Some representative placeholder content for the second slide of the carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+            <h1>广告位</h1>
+            <h5>火车一响，黄金万两</h5>
+              <p><a class="btn btn-lg btn-primary" href="#">learn more</a></p>
           </div>
         </div>
       </div>
       <div class="carousel-item" style="height: 220px;">
-        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-          preserveAspectRatio="xMidYMid slice" focusable="false">
-          <rect width="100%" height="100%" fill="#777" />
-        </svg>
+        <img src="./images/cool-background (2).png" alt="">
 
         <div class="container">
           <div class="carousel-caption text-end">
-            <h1>One more for good measure.</h1>
-            <p>Some representative placeholder content for the third slide of this carousel.</p>
-            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+            <h1>广告位</h1>
+            <h5>诚招广告，童叟无欺，诚信为本</h5>
+            <p><a class="btn btn-lg btn-primary" href="#">learn more</a></p>
           </div>
         </div>
       </div>
@@ -251,11 +286,10 @@
   <!-- 导航栏头部开始 -->
   <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
     <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">Online Chat-room</a>
-    <input class="form-control form-control-dark w-100 rounded-0 border-0" type="text" placeholder="点击此处搜索你的好友"
-      aria-label="Search">
+
     <div class="navbar-nav">
       <div class="nav-item text-nowrap">
-        <a class="nav-link px-3" href="#">&nbsp;&nbsp;搜索&nbsp;&nbsp;</a>
+        <button class="nav-link px-4 bg-white" style="border-radius: 5px;"><span style="color: black; font-size: 16px; font-family: 'fangsong';">退出登录</span></button>
       </div>
     </div>
   </header>
@@ -266,18 +300,33 @@
   <div class="container-fluid">
     <div class="row">
       <!-- 在线好友显示部分 -->
-      <div style="height: 650px; width:16.6%;background-color: black; display: inline-block;" class=""></div>
+      <div id="showFriend" class=""></div>
       <!-- 表单开始 -->
       <form class="col-md-9 ms-sm-auto col-lg-10 " action="#">
-        <div style="height: 500px;"><textarea class="my-4 w-100 h-100" id="myChart" cols="100" rows="10"
-            disabled></textarea></div>
-        <input type="text" class="massageIn">
-        <button type="submit">发送</button>
-        <button>退出登录</button>
+        <div style="height: 500px;">
+          <textarea class="my-4 w-100 h-100" id="myChart" cols="100" rows="10" disabled
+            style="border-radius: 12px; border: #333 solid 3px;"></textarea>
+        </div>
+
+        <div class="massageIn">
+          <input type="text">
+          <button type="submit">发送</button>
+        </div>
+
+
       </form>
       <!-- 表单结束 -->
     </div>
   </div>
+  <!-- 底部开始 -->
+  <footer class="footer mt-auto py-3 bg-black">
+    <div class="container">
+      <span style="font-size: 20px; font-weight: 700; font-family: 'kaiti'; color: #fff;">Buyer
+        Forum&nbsp;&nbsp;&nbsp;——&nbsp;&nbsp;为选择困难症设计的一站式平台</span>
+      <span style="color: #fff;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&copy;&nbsp;2022&nbsp;&nbsp; </span>
+    </div>
+  </footer>
+
 
   <script src="js/bootstrap.bundle.min.js"></script>
 </body>
