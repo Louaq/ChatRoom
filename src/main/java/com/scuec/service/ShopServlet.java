@@ -14,14 +14,17 @@ public class ShopServlet extends HttpServlet {
         this.doPost(request, response);
 
 
-
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //获取选购商品的id
         String id = request.getParameter("id");
-        System.out.println(id);
+        System.out.println("id = " + id);
+
+
+
+
 
 
 

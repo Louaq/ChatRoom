@@ -37,33 +37,61 @@
     </style>
 </head>
 <body>
-<%--展示商品区--%>
-<%
-    String resource = "mybatis-config.xml";
-    InputStream inputStream = Resources.getResourceAsStream(resource);
-    SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-    SqlSession sqlSession = sqlSessionFactory.openSession();
-    ShopMapper shopMapper = sqlSession.getMapper(ShopMapper.class);
-    List<Shop> shopList = shopMapper.selectShops();
-    out.print("<div>");
-    out.println("<form action='ShopServlet' method='POST'>");
 
-    for (Shop shop : shopList) {
-        //表格显示
-        out.println("<table border='1'>");
-        out.println("<tr>");
-        out.println("<td name='id'>" + shop.getId() + "</td>");
-        out.println("<td name='name'>" + shop.getName() + "</td>");
-        out.println("<td name='price'>" + shop.getPrice() + "</td>");
-        //添加购物车按钮
-        out.println("<td><input type='submit' value='添加购物车' width='30px' height='20px'></td>");
-        out.println("</tr>");
+<table border="1" width="70%">
+    <tr>
+        <th>编号</th>
+        <th>名称</th>
+        <th>价格</th>
+        <th>操作</th>
+    </tr>
+
+    <%
+        String resource = "mybatis-config.xml";
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        ShopMapper shopMapper = sqlSession.getMapper(ShopMapper.class);
+        List<Shop> shopList = shopMapper.selectShops();
+        for (Shop shop : shopList) {
+    %>
+    <tr>
+        <td><%=shop.getId()%></td>
+        <td><%=shop.getName()%></td>
+        <td><%=shop.getPrice()%></td>
+        <td><button onclick="addCart(<%=shop.getId()%>)">加入购物车</button></td>
+    </tr>
+    <%
+        }
+    %>
+</table>
+
+<script>
+    //点击加入购物车按钮，将商品id传递给后台，后台将商品id存入session中，页面不发生跳转
+    function addCart(id) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("get","/doShopping.jsp?id="+id);
+        xhr.send();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                alert("加入购物车成功");
+            }
+
+        }
+
     }
 
-    out.println("</form>");
-    out.print("</div>");
-    sqlSession.close();
+</script>
 
-%>
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
