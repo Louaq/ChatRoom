@@ -1,6 +1,8 @@
 com\scuec\service\ChatServlet.class
 com\scuec\service\LoginSevlet.class
+com\scuec\service\Shop.class
 com\scuec\service\utils\MyCarUtils.class
+com\scuec\service\ShopServlet.class
 com\scuec\service\OnlineListener.class
 com\scuec\service\SafeFilter.class
 com\scuec\service\RegisterServlet.class

@@ -4,17 +4,6 @@
 <head>
     <title>online</title>
     <script src="jquery-3.5.1/jquery-3.5.1.js"></script>
-    <style>
-        body {
-            width: 100px;
-            height: 40px;
-        }
-        div {
-            width: 683px;
-            height:280px;
-            color: white;
-        }
-    </style>
 </head>
 <body>
 <div>
@@ -24,7 +13,7 @@
 
     %>
 
-    <%=application.getAttribute("count")%>
+    <%--<%=application.getAttribute("count")%>--%>
 
     <%--    <%
             int count = 0;
