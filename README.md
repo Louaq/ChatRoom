@@ -7,18 +7,9 @@
 >技术栈：Servlet+JSP+Mybatis+JavaBean+Bootstrap
 
 
-# Security Policy
-
-## Supported Versions
+>数据库部分见图片
 
 
-
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
-
-## Reporting a Vulnerability
-
+![Snipaste_2022-11-07_15-22-05](https://user-images.githubusercontent.com/74131522/200249512-56c61cb1-c4b6-4eed-a81e-f68561b3a7fc.png)
+![Snipaste_2022-11-07_15-22-21](https://user-images.githubusercontent.com/74131522/200249603-5acd6e30-cfa4-4ae1-b496-8527409d999a.png)
+![Snipaste_2022-11-07_15-22-14](https://user-images.githubusercontent.com/74131522/200249642-859d3c71-0ea2-43b1-aff2-63ad3a4b3166.png)
