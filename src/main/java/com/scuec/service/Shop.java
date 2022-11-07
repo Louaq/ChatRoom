@@ -5,11 +5,11 @@ public class Shop {
     private String name;
     private int price;
     //购买数量
-    private int buyNum;
+    private int buyNum=1;
 
 
     public int getBuyNum() {
-        return buyNum+1;
+        return buyNum;
     }
 
     public void setBuyNum(int buyNum) {
