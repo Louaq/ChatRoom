@@ -7,8 +7,8 @@
 >技术栈：Servlet+JSP+Mybatis+JavaBean+Bootstrap
 
 
+# 数据库
 >数据库部分见图片
-
 
 ![Snipaste_2022-11-07_15-22-05](https://user-images.githubusercontent.com/74131522/200249512-56c61cb1-c4b6-4eed-a81e-f68561b3a7fc.png)
 ![Snipaste_2022-11-07_15-22-21](https://user-images.githubusercontent.com/74131522/200249603-5acd6e30-cfa4-4ae1-b496-8527409d999a.png)
