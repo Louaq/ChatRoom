@@ -7,8 +7,9 @@ public class Shop {
     //购买数量
     private int buyNum;
 
+
     public int getBuyNum() {
-        return buyNum;
+        return buyNum+1;
     }
 
     public void setBuyNum(int buyNum) {

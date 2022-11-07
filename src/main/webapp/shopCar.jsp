@@ -66,11 +66,14 @@
     %>
 </table>
 
+<%--结算按钮--%>
+<button onclick="settle()">结算</button>
+
 <script>
     //点击加入购物车按钮，将商品id传递给后台，后台将商品id存入session中，页面不发生跳转
     function addCart(id) {
         var xhr = new XMLHttpRequest();
-        xhr.open("get","/doShopping.jsp?id="+id);
+        xhr.open("get","/ShopServlet?id="+id);
         xhr.send();
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4 && xhr.status == 200) {
@@ -79,6 +82,11 @@
 
         }
 
+    }
+
+    //点击结算按钮，跳转到doShopping.jsp页面，后台将session中的商品id取出，进行结算
+    function settle() {
+        window.location.href = "/doShopping.jsp";
     }
 
 </script>

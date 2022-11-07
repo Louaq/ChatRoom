@@ -1,6 +1,5 @@
-package com.scuec.service.utils;
+package com.scuec.service;
 
-import com.scuec.service.Shop;
 import com.scuec.service.mapper.ShopMapper;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -10,24 +9,32 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-public class MyCarUtils {
+import static java.lang.System.out;
+
+public class Cart {
     /**
      * 保存商品信息
      * @param shop
      * @return
      */
     private Map<Integer, Shop> car = new HashMap<Integer, Shop>();
+    private Map<String, Integer> items;
+    private Map<Shop, Integer> map;
 
 
-    public void showShop(){
+    public Object showGoods(){
         for (Map.Entry<Integer, Shop> entry : car.entrySet()) {
-            System.out.println(entry.getKey() + " " + entry.getValue());
+            out.println(entry.getValue().getId()+"\t"+entry.getValue().getName()+"\t"+entry.getValue().getPrice());
         }
+
+        return car;
     }
 
-    public void addShop(Integer id) throws IOException {
+
+    public void addGoods(Integer id) throws IOException {
         //判断是否买过
         boolean contains = car.containsKey(id);
         if(contains){
@@ -55,7 +62,7 @@ public class MyCarUtils {
      * 删除商品
      * @param id
      */
-    public void removeShop(Integer id){
+    public void removeGoods(Integer id){
         car.remove(id);
 
     }
@@ -63,7 +70,7 @@ public class MyCarUtils {
     /**
      * 清空购物车
      */
-    public void clearShop() {
+    public void clearGoods() {
         car.clear();
     }
 
@@ -72,14 +79,44 @@ public class MyCarUtils {
      */
 
     public float getTotalPrice() {
-        float totalPrice = 0.0f;
+        float totalPrice = 0;
         for (Map.Entry<Integer, Shop> entry : car.entrySet()) {
-            //获取商品
-            Shop shop = entry.getValue();
-            //价格
-            totalPrice += shop.getPrice() * shop.getBuyNum();
+            totalPrice += entry.getValue().getPrice() * entry.getValue().getBuyNum();
         }
         return totalPrice;
     }
 
+    public Map<String, Integer> getItems() {
+        //获取购物车中所有商品
+        List<Shop> shops = (List<Shop>) car.values();
+        //遍历商品
+        for (Shop shop : shops) {
+            //获取商品id
+            Integer id = shop.getId();
+            //获取商品数量
+            Integer buyNum = shop.getBuyNum();
+            //将商品id和商品数量存入map集合
+            items.put(id.toString(), buyNum);
+        }
+        return items;
+    }
+
+    public Map<Shop, Integer> getMap() {
+        //获取购物车中所有商品
+        List<Shop> shops = (List<Shop>) car.values();
+        //遍历商品
+        for (Shop shop : shops) {
+            //获取商品id
+            Integer id = shop.getId();
+            //获取商品数量
+            Integer buyNum = shop.getBuyNum();
+            //将商品id和商品数量存入map集合
+            map.put(shop, buyNum);
+        }
+        return map;
+    }
+
+    public Map<Integer, Shop> getCar() {
+        return car;
+    }
 }
