@@ -1,16 +1,5 @@
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-# This workflow checks out code, performs a Codacy security scan
-# and integrates the results with the
-# GitHub Advanced Security code scanning feature.  For more information on
-# the Codacy security scan action usage and parameters, see
-# https://github.com/codacy/codacy-analysis-cli-action.
-# For more information on Codacy Analysis CLI in general, see
-# https://github.com/codacy/codacy-analysis-cli.
-
 name: Codacy Security Scan
 
 on:
@@ -59,7 +48,7 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: results.sarif
-- name: OpenShift Client Installer
+- name: Yangyang
   # You may pin to the exact commit or the version.
   # uses: redhat-actions/oc-installer@a129dec08aa1cd54ee1e0ac0ebcfbf7b12720582
   uses: redhat-actions/oc-installer@v1
