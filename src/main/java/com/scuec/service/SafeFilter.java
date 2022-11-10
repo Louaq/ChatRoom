@@ -28,7 +28,6 @@ public class SafeFilter implements Filter {
             //判断是否登录
             HttpSession session = req.getSession();
             Object user = session.getAttribute("nameSession");
-            System.out.println(user);
 
             if (user != null) {
                 //放行
