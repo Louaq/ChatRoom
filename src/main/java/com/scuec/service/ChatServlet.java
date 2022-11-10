@@ -39,7 +39,7 @@ public class ChatServlet extends HttpServlet {
         String time = dateFormat.format(now); //按照给定的日期格式获取系统当前时间
 
 
-        String t = (String) request.getSession().getAttribute("nameSession");
+        String t = (String) request.getSession().getAttribute("nameSession");     //获取用户的名字，登录时已经通过session保存
 
         chat_record += time + "  " + t + "  " + "说了：" + input_textarea + "\n";   //聊天记录存储
 
