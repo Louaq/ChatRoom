@@ -41,13 +41,13 @@
             out.println("<td>" + entry.getValue().getName() + "</td>");
             out.println("<td>" + entry.getValue().getPrice() + "</td>");
             out.println("<td>" + entry.getValue().getBuyNum() + "</td>");
-            out.println("<td>" + entry.getValue().getPrice()*entry.getValue().getBuyNum() + "</td>");
+            out.println("<td>" + entry.getValue().getPrice() * entry.getValue().getBuyNum() + "</td>");
             out.println("</tr>");
         }
         //计算总价
         double total = 0;
         for (Map.Entry<Integer, Shop> entry : car.entrySet()) {
-            total += entry.getValue().getPrice()*entry.getValue().getBuyNum();
+            total += entry.getValue().getPrice() * entry.getValue().getBuyNum();
         }
         out.println("<tr>");
         out.println("<td colspan='4'>总价：" + total + "</td>");
@@ -59,15 +59,10 @@
 <%--订单编号--%>
 <%
     String orderNum = "";
-    if (orderNum == null) {
-        //随机生成订单编号
-        orderNum = String.valueOf(System.currentTimeMillis());
-        out.println("订单编号：" + orderNum);
-    }
-
+    //随机生成订单编号
+    orderNum = String.valueOf(System.currentTimeMillis());
+    out.println("订单编号：" + orderNum);
 %>
-
-
 
 
 </body>
