@@ -4,17 +4,6 @@
 <head>
     <title>online</title>
     <script src="jquery-3.5.1/jquery-3.5.1.js"></script>
-    <style>
-        body {
-            width: 100px;
-            height: 40px;
-        }
-        div {
-            width: 683px;
-            height:280px;
-            color: white;
-        }
-    </style>
 </head>
 <body>
 <div>
@@ -24,12 +13,26 @@
 
     %>
 
-    <%--<%
-        System.out.println(application.getAttribute("allUser"));
-        if(null != application.getAttribute("allUser")){
-            List<String> list = (List<String>)application.getAttribute("allUser");
+    <%--<%=application.getAttribute("count")%>--%>
+
+    <%--    <%
+            int count = 0;
+            //获取session
+            Enumeration<String> names = request.getSession().getServletContext().getAttributeNames();
+            while (names.hasMoreElements()) {
+                String name = names.nextElement();
+                if (name.startsWith("nameSession")) {
+                    count++;
+                }
+            }
+            out.print("在线人数：" + count);
+        %>--%>
+
+    <%
+        if(null != application.getAttribute("User")){
+            List<String> list = (List<String>)application.getAttribute("User");
     %>
-        在线人数:<span><%=list.size() %></span><br>
+    在线人数:<span><%=list.size() %></span><br>
     <%
         for(String s:list){
     %>
@@ -38,9 +41,8 @@
     <%
             }
         }
-    %>--%>
+    %>
 
-        当前在线人数为<%=application.getAttribute("peopleOnline")%>人
 </div>
 </body>
 </html>

@@ -19,7 +19,6 @@ public class ShopServlet extends HttpServlet {
         }
         cart.addGoods(Integer.parseInt(id));
 
-
     }
 
     @Override

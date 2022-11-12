@@ -9,16 +9,11 @@
 <html>
 <head>
     <title>input</title>
-    <style>
-        div {
-            margin-left:600px;
-        }
-    </style>
 </head>
 <body>
 <div>
     <form action="ChatServlet" method=post>
-        <textarea cols="105" rows="5" name="input_textarea"></textarea><br>
+        <textarea cols="105" rows="1" name="input_textarea"></textarea><br>
         <input type="submit" value="发送" name="button_one"
                style="width: 100px; height: 40px;font-size: 25px;margin-top: 10px;margin-left:315px"><br>
     </form>

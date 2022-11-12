@@ -58,13 +58,13 @@
 %>
 <%--订单编号--%>
 <%
-    String orderNum = (String) session.getAttribute("orderNum");
+    String orderNum = "";
     if (orderNum == null) {
         //随机生成订单编号
         orderNum = String.valueOf(System.currentTimeMillis());
-        session.setAttribute("orderNum", orderNum);
+        out.println("订单编号：" + orderNum);
     }
-    out.println("订单编号：" + orderNum);
+
 %>
 
 
