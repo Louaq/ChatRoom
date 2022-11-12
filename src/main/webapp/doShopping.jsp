@@ -54,6 +54,17 @@
         out.println("</tr>");
         out.println("</table>");
     }
+
+%>
+<%--订单编号--%>
+<%
+    String orderNum = (String) session.getAttribute("orderNum");
+    if (orderNum == null) {
+        //随机生成订单编号
+        orderNum = String.valueOf(System.currentTimeMillis());
+        session.setAttribute("orderNum", orderNum);
+    }
+    out.println("订单编号：" + orderNum);
 %>
 
 
