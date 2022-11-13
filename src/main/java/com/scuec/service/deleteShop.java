@@ -11,7 +11,6 @@ public class deleteShop extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //删除购物车中的商品
 
-
     }
 
     @Override
