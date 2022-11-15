@@ -1,4 +1,6 @@
-<%--
+<%@ page import="com.zhenzi.sms.ZhenziSmsClient" %>
+<%@ page import="java.util.Map" %>
+<%@ page import="java.util.HashMap" %><%--
   Created by IntelliJ IDEA.
   User: YangYang
   Date: 2022/10/27
@@ -56,6 +58,7 @@
                                name="password">
                         <label for="newPassword">Password</label>
                     </div>
+
                     <%--获取验证码--%>
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control rounded-3" id="newCode" placeholder="code"
@@ -65,6 +68,7 @@
                             <el-button @click="visible = true" onclick="getCode()">获取验证码</el-button>
                         </div>
                     </div>
+
                     <!-- 提交按钮 -->
                     <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">注册</button>
                     <small class="text-muted">点击注册，即表示您同意使用条款</small><br>
@@ -83,23 +87,37 @@
 <script>
     new Vue({
         el: '#app',
-        data: function() {
-            return { visible: false }
+        data: function () {
+            return {visible: false}
         }
     })
 </script>
 
+<%--发送验证码--%>
 <script>
-    function getCode(){
+    function getCode() {
+        <%
+        String apiUrl = "https://sms_developer.zhenzikj.com";
+        String appId = "112591";
+        String appSecret = "2af4ffbc-1cb2-4671-ae59-cfdccaaff97c";
+        ZhenziSmsClient client = new ZhenziSmsClient(apiUrl, appId, appSecret);
 
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("number", "18386797248");
+        params.put("templateId", "10741");
+        String[] templateParams = new String[2];
 
+        //随机产生4位数
+        int code = (int) ((Math.random() * 9 + 1) * 1000);
+        templateParams[0] = String.valueOf(code);
+        templateParams[1] = "5分钟";
+        params.put("templateParams", templateParams);
+        String result = client.send(params);
+        System.out.println(result);
 
+        %>
     }
 </script>
-
-
-
-
 
 
 </body>

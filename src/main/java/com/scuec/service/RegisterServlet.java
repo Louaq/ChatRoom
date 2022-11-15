@@ -31,31 +31,39 @@ public class RegisterServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         HttpSession session = request.getSession();
-        session.setAttribute("username", username);
-        session.setAttribute("password", password);
+        //获取session中的验证码
+        String Acode = (String) session.getAttribute("result");
+        //判断验证码是否正确
+        if (Acode.equals(request.getParameter("code"))){
+            session.setAttribute("username", username);
+            session.setAttribute("password", password);
 
-        User user = new User();
-        user.setUsername(username);
-        user.setPassword(password);
-        String type="user";
-        user.setType(type);
+            User user = new User();
+            user.setUsername(username);
+            user.setPassword(password);
+            String type="user";
+            user.setType(type);
 
-        //将用户信息存入数据库
-        String resource = "mybatis-config.xml";
-        InputStream inputStream = Resources.getResourceAsStream(resource);
-        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+            //将用户信息存入数据库
+            String resource = "mybatis-config.xml";
+            InputStream inputStream = Resources.getResourceAsStream(resource);
+            SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 
-        SqlSession sqlSession = sqlSessionFactory.openSession();
+            SqlSession sqlSession = sqlSessionFactory.openSession();
 
-        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        int i = userMapper.insertUser(user);
-        //提交事务
-        sqlSession.commit();
-        sqlSession.close();
+            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+            int i = userMapper.insertUser(user);
+            //提交事务
+            sqlSession.commit();
+            sqlSession.close();
 
-        //返回登录页面
-        response.sendRedirect(request.getContextPath() + "/login.jsp");
-
+            //返回登录页面
+            response.sendRedirect(request.getContextPath() + "/login.jsp");
+        } else {
+            //验证码错误
+            request.setAttribute("msg", "验证码错误");
+            request.getRequestDispatcher("/register.jsp").forward(request, response);
+        }
 
     }
 }
