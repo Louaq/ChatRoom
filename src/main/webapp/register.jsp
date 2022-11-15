@@ -11,6 +11,7 @@
     <title>register</title>
     <script src="jquery-3.5.1/jquery-3.5.1.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="//unpkg.com/vue@2/dist/vue.js"></script>
     <style>
         .modal-sheet .modal-dialog {
             width: 380px;
@@ -55,6 +56,15 @@
                                name="password">
                         <label for="newPassword">Password</label>
                     </div>
+                    <%--获取验证码--%>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control rounded-3" id="newCode" placeholder="code"
+                               name="code">
+                        <label for="newCode">code</label>
+                        <div id="app" style="margin-left: 291px;margin-top: 5px">
+                            <el-button @click="visible = true" onclick="getCode()">获取验证码</el-button>
+                        </div>
+                    </div>
                     <!-- 提交按钮 -->
                     <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">注册</button>
                     <small class="text-muted">点击注册，即表示您同意使用条款</small><br>
@@ -66,5 +76,31 @@
         </div>
     </div>
 </div>
+<!-- 引入样式 -->
+<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    new Vue({
+        el: '#app',
+        data: function() {
+            return { visible: false }
+        }
+    })
+</script>
+
+<script>
+    function getCode(){
+
+
+
+    }
+</script>
+
+
+
+
+
+
 </body>
 </html>

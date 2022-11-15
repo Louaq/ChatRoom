@@ -4,7 +4,7 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-
+  <!--监听器-->
   <listener>
     <listener-class>com.scuec.service.OnlineListener</listener-class>
   </listener>

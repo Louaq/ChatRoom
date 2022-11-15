@@ -7,7 +7,6 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 
-//配置拦截路径
 @WebFilter("/*")
 public class SafeFilter implements Filter {
 
@@ -23,7 +22,6 @@ public class SafeFilter implements Filter {
         if (url.equals("http://localhost:8080/login.jsp") || url.equals("http://localhost:8080/login") || url.equals("http://localhost:8080/register.jsp") || url.equals("http://localhost:8080/Register") ||url.equals("http://localhost:8080/") || url.contains("/images/") || url.contains("/css/") || url.contains("/js/")) {
 
             filterChain.doFilter(servletRequest, servletResponse);
-
         } else{
             //判断是否登录
             HttpSession session = req.getSession();

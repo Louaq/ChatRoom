@@ -13,13 +13,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLEncoder;
 
+import static java.lang.System.out;
+
 
 @WebServlet("/login")
 public class LoginSevlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         this.doPost(request, response);
-
     }
 
     @Override
@@ -35,11 +36,9 @@ public class LoginSevlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        //用户名存储到session中
-        request.getSession().setAttribute("nameSession",username);
+
         //设置session的有效时间60s
         /*request.getSession().setMaxInactiveInterval(60);*/
-
 
         //查询数据库的用户名和密码
         String resource = "mybatis-config.xml";
@@ -50,9 +49,10 @@ public class LoginSevlet extends HttpServlet {
         UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 
         User user = userMapper.selectUser(username, password);
+
+
         //判断用户名和密码是否正确
         if (user != null) {
-            //登录成功
             //判断是否勾选了记住密码
             if ("true".equals(remember)) {
                 //判断是否已经存在cookie
@@ -88,8 +88,11 @@ public class LoginSevlet extends HttpServlet {
 /*                  System.out.println(URLDecoder.decode(username, "UTF-8"));
                     System.out.println(URLDecoder.decode(password, "UTF-8"));*/
                 }
+
             }
-            //登录成功,转发到主聊天界面Select.jsp选择页面
+
+            //登录成功,转发到主聊天界面Select.jsp选择页面，用户名存储到session中
+            request.getSession().setAttribute("nameSession", username);
             request.getRequestDispatcher("/Select.jsp").forward(request, response);
 
         } else {

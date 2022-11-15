@@ -54,9 +54,9 @@
 
 <body class="text-center">
 <%--提示尚未登录信息--%>
-<%if (request.getAttribute("login_msg") != null) {%>
+<%if (request.getAttribute("msg") != null) {%>
 <script>
-    alert("<%=request.getAttribute("login_msg")%>");
+    alert("<%=request.getAttribute("msg")%>");
 </script>
 <%}%>
 
