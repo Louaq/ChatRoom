@@ -12,73 +12,53 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
+
 @WebServlet("/onlineListener")
-public class OnlineListener implements ServletContextListener, HttpSessionAttributeListener, HttpSessionListener {
-    ServletContext application = null;
 
-    public void contextDestroyed(ServletContextEvent event) {
-        System.out.println("contextDestroyed");
+//监听登录的用户，统计在线人数
+public class OnlineListener implements ServletContextListener,
+        HttpSessionListener {
+
+    //监听Application对象
+    @Override
+    public void contextInitialized(ServletContextEvent sce) {
+        int count=0;
+        //获取Application对象
+        ServletContext sc = sce.getServletContext();
+        sc.setAttribute("count",count);
+    }
+    @Override
+    public void contextDestroyed(ServletContextEvent sce) {
 
     }
 
-    public void contextInitialized(ServletContextEvent event) {
-        List<String> list = new ArrayList<String>();
-        //用来保存所有已登录的用户
-        application = event.getServletContext();
-        //取得application对象
-        application.setAttribute("User", list);
-        //将集合设置到application范围属性中去
-
+    //监听Session对象
+    @Override
+    public void sessionCreated(HttpSessionEvent se) {
+        //获取Application对象中的计数器
+        ServletContext sc = se.getSession().getServletContext();
+        int count=(int) sc.getAttribute("count");
+        //计数器自增
+        ++count;
+        //然后再将计数器存储到application中
+        sc.setAttribute("count", count);
     }
 
-
-    public void attributeAdded(HttpSessionBindingEvent se) {
-        List<String> list = (List<String>) application.getAttribute("User");
-        //假设：用户登陆成功之后，只将户名设置到session中
-        String userName = (String) se.getValue();
-        //取得用户名
-        if (list.indexOf(userName) == -1) {
-            //表示此用户之前没有登陆
-            list.add(userName);
-            application.setAttribute("User", list);
-        }
+    @Override
+    public void sessionDestroyed(HttpSessionEvent se) {
+        // 获取Application对象中的计数器
+        ServletContext sc = se.getSession().getServletContext();
+        int count=(int) sc.getAttribute("count");
+        //计数器自增
+        --count;
+        //然后再将计数器存储到application中
+        sc.setAttribute("count", count);
     }
 
-    public void attributeRemoved(HttpSessionBindingEvent se) {
-        List<String> list = (List<String>) application.getAttribute("User");
-        list.remove((String) se.getValue());
-        application.setAttribute("User", list);
-    }
-
-    public void attributeReplaced(HttpSessionBindingEvent se) {
-
-    }
-
-    public void sessionCreated(HttpSessionEvent event) {
-        //人数加一
-/*        Integer count = (Integer) application.getAttribute("count");
-        if (count == null) {
-            count = 1;
-        } else {
-            count++;
-        }
-        application.setAttribute("count", count);*/
-
-
-    }
-
-    public void sessionDestroyed(HttpSessionEvent event) {
-        //人数减一
-/*        Integer count = (Integer) application.getAttribute("count");
-        if (count == null) {
-            count = 0;
-        } else {
-            count--;
-        }
-        application.setAttribute("count", count);*/
-
-    }
 }
+
+
 
 
 

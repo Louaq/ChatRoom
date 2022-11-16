@@ -37,8 +37,9 @@ public class ChatServlet extends HttpServlet {
         Date now = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String time = dateFormat.format(now);
-        String t = (String) request.getSession().getAttribute("nameSession");
-
+        //获取名字，名字存在ServletContext中
+        ServletContext servletContext = this.getServletContext();
+        String t = (String) servletContext.getAttribute("nameSession");
         record += time + "  " + t + "  " + "说了：" + input_textarea + "\n";
 
         ServletContext application = this.getServletContext();  //获取application对象
@@ -49,9 +50,6 @@ public class ChatServlet extends HttpServlet {
         list.add(record);
         application.setAttribute("input_textarea", list);
         request.getRequestDispatcher("input.jsp").forward(request, response);
-
-
-
 
     }
 }

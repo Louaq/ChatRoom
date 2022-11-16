@@ -12,37 +12,7 @@
         response.setIntHeader("Refresh", 1);
 
     %>
-
-    <%--<%=application.getAttribute("count")%>--%>
-
-    <%--    <%
-            int count = 0;
-            //获取session
-            Enumeration<String> names = request.getSession().getServletContext().getAttributeNames();
-            while (names.hasMoreElements()) {
-                String name = names.nextElement();
-                if (name.startsWith("nameSession")) {
-                    count++;
-                }
-            }
-            out.print("在线人数：" + count);
-        %>--%>
-
-    <%
-        if(null != application.getAttribute("User")){
-            List<String> list = (List<String>)application.getAttribute("User");
-    %>
-    在线人数:<span><%=list.size() %></span><br>
-    <%
-        for(String s:list){
-    %>
-    <a>姓名：</a><%=s %><a>---->此时在线</a><br>
-
-    <%
-            }
-        }
-    %>
-
+    在线人数：<%=application.getAttribute("count")%>人
 </div>
 </body>
 </html>
