@@ -3,10 +3,10 @@ package com.scuec.service;
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-import static java.lang.System.out;
+
+
 
 
 @WebFilter("/login")
@@ -25,7 +25,6 @@ public class loginFilter implements Filter {
             //存储错误信息，转发到登录页面
             req.setAttribute("msg", "您已经登录过了，无需重复登录");
             req.getRequestDispatcher("/login.jsp").forward(req, servletResponse);
-
 
         } else {
             //放行

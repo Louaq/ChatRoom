@@ -1,6 +1,7 @@
 <%@ page import="com.zhenzi.sms.ZhenziSmsClient" %>
 <%@ page import="java.util.Map" %>
-<%@ page import="java.util.HashMap" %><%--
+<%@ page import="java.util.HashMap" %>
+<%@ page import="com.scuec.service.testCode" %><%--
   Created by IntelliJ IDEA.
   User: YangYang
   Date: 2022/10/27
@@ -13,7 +14,7 @@
     <title>register</title>
     <script src="jquery-3.5.1/jquery-3.5.1.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <script src="//unpkg.com/vue@2/dist/vue.js"></script>
+    <%--    <script src="//unpkg.com/vue@2/dist/vue.js"></script>--%>
     <style>
         .modal-sheet .modal-dialog {
             width: 380px;
@@ -45,7 +46,7 @@
             </div>
             <div class="modal-body p-5 pt-0">
                 <!-- 注册表单开始 -->
-                <form action="Register" class="">
+                <form action="" class="">
                     <div class="form-floating mb-3">
                         <!-- 新用户 -->
                         <input type="text" class="form-control rounded-3" id="newUser" placeholder="name@example.com"
@@ -59,18 +60,26 @@
                         <label for="newPassword">Password</label>
                     </div>
 
-                    <%--获取验证码--%>
+
+
+
+                    <%--验证码--%>
                     <div class="form-floating mb-3">
                         <input type="text" class="form-control rounded-3" id="newCode" placeholder="code"
-                               name="code">
+                               name="verifyCode">
                         <label for="newCode">code</label>
-                        <div id="app" style="margin-left: 291px;margin-top: 5px">
-                            <el-button @click="visible = true" onclick="getCode()">获取验证码</el-button>
-                        </div>
+                        <button type="button" class="sendVerifyCode">获取验证码</button>
+
                     </div>
 
+
+
+
+
+
+
                     <!-- 提交按钮 -->
-                    <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit">注册</button>
+                    <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary sub-btn" type="submit">注册</button>
                     <small class="text-muted">点击注册，即表示您同意使用条款</small><br>
                     <small class="text-muted">最终解释权归产品方所有</small>
                     <hr class="my-4">
@@ -80,45 +89,106 @@
         </div>
     </div>
 </div>
-<!-- 引入样式 -->
+<%--<!-- 引入样式 -->
 <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 <!-- 引入组件库 -->
-<script src="https://unpkg.com/element-ui/lib/index.js"></script>
-<script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>--%>
+<%--<script>
     new Vue({
         el: '#app',
         data: function () {
             return {visible: false}
         }
     })
+</script>--%>
+<%--将数据username转发到testServlet，使得testServlet可以获取到username--%>
+
+<script>
+    //发送验证码
+    $(".sendVerifyCode").on("click", function () {
+        var data = {};
+        data.username = $("#newUser").val();
+        if (data.username === '') {
+            alert("请输入手机号码");
+            return;
+        }
+        $.ajax({
+            url: "http://localhost:8080/SendSmsServlet",
+            async: true,
+            type: "post",
+            dataType: "text",
+            data: data,
+            success: function (data) {
+                if (data === 'success') {
+                    return;
+                }
+
+            }
+        });
+    })
+    //ajax提交数据
+    $(".sub-btn").on("click", function () {
+        var data = {};
+        data.username = $.trim($("input[name=username]").val());
+        data.password = $.trim($("input[name=password]").val());
+        data.Code = $.trim($("input[name=verifyCode]").val());
+        if (data.username == '') {
+            alert("请输入手机号码");
+            return;
+        }
+        if (data.password == '') {
+            alert("请输入密码");
+            return;
+        }
+        if (data.Code == '') {
+            alert("请输入验证码");
+            return;
+        }
+        $.ajax({
+            url: "http://localhost:8080/Register",
+            async: true,
+            type: "POST",
+            dataType: "text",
+            data: data,
+            success: function (data) {
+                if (data === 'success') {
+                    alert("注册成功");
+                    return;
+                }
+
+            }
+        });
+    })
+
+
+
+
+
+
 </script>
 
-<%--发送验证码--%>
-<script>
-    function getCode() {
+
+<%--<script>
+
+
+    function sendVerifyCode() {
+
         <%
-        String apiUrl = "https://sms_developer.zhenzikj.com";
-        String appId = "112591";
-        String appSecret = "2af4ffbc-1cb2-4671-ae59-cfdccaaff97c";
-        ZhenziSmsClient client = new ZhenziSmsClient(apiUrl, appId, appSecret);
 
-        Map<String, Object> params = new HashMap<String, Object>();
-        params.put("number", "18386797248");
-        params.put("templateId", "10741");
-        String[] templateParams = new String[2];
-
-        //随机产生4位数
-        int code = (int) ((Math.random() * 9 + 1) * 1000);
-        templateParams[0] = String.valueOf(code);
-        templateParams[1] = "5分钟";
-        params.put("templateParams", templateParams);
-        String result = client.send(params);
-        System.out.println(result);
+             testCode testCode = new testCode();
+             try {
+                 String code = testCode.send();
+                 session.setAttribute("code", code);
+             }
+                catch (Exception e) {
+                 throw new RuntimeException(e);
+             }
 
         %>
-    }
-</script>
 
+    }
+
+</script>--%>
 
 </body>
 </html>

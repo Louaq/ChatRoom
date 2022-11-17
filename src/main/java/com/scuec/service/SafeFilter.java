@@ -19,7 +19,7 @@ public class SafeFilter implements Filter {
         //判断访问资源的路径是否和登录注册相关
         String url = req.getRequestURL().toString();
         //如果是登录注册相关的资源，放行
-        if (url.equals("http://localhost:8080/login.jsp") || url.equals("http://localhost:8080/login") || url.equals("http://localhost:8080/register.jsp") || url.equals("http://localhost:8080/Register") ||url.equals("http://localhost:8080/") || url.contains("/images/") || url.contains("/css/") || url.contains("/js/")) {
+        if (url.equals("http://localhost:8080/login.jsp") || url.equals("http://localhost:8080/login") || url.equals("http://localhost:8080/register.jsp") || url.equals("http://localhost:8080/Register") ||url.equals("http://localhost:8080/") || url.equals("http://localhost:8080/SendSmsServlet") || url.contains("/images/") || url.contains("/css/") || url.contains("/js/") || url.contains("/jquery-3.5.1/")) {
 
             filterChain.doFilter(servletRequest, servletResponse);
         } else{

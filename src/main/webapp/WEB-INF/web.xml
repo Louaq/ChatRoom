@@ -4,10 +4,21 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
   <!--监听器-->
   <listener>
     <listener-class>com.scuec.service.OnlineListener</listener-class>
   </listener>
+
+
+  <servlet>
+    <servlet-name>SendSmsServlet</servlet-name>
+    <servlet-class>com.scuec.service.SendSmsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SendSmsServlet</servlet-name>
+    <url-pattern>/SendSmsServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
 
 
