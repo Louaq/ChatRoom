@@ -10,7 +10,7 @@
     <listener-class>com.scuec.service.OnlineListener</listener-class>
   </listener>
 
-
+  <!--发送验证码的Servlet-->
   <servlet>
     <servlet-name>SendSmsServlet</servlet-name>
     <servlet-class>com.scuec.service.SendSmsServlet</servlet-class>

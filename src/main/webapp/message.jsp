@@ -16,16 +16,12 @@
 <%
     response.setIntHeader("Refresh", 1);
 %>
-<%--刷新页面--%>
 
 
 <div>
     <%--<%=application.getAttribute("input_textarea")%>--%>
     <textarea cols="105" rows="40" name="show_textarea"><%=application.getAttribute("input_textarea")%></textarea>
 </div>
-
-
-
 
 
 </body>

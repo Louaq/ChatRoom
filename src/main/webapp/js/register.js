@@ -68,17 +68,17 @@ $(".sub-btn").on("click", function () {
 })
 
 //验证码倒计时
-$(function(){
-    $(".sendVerifyCode").on("click", function(){
+$(function () {
+    $(".sendVerifyCode").on("click", function () {
         var that = $(this);
         var seconds = 60;
         that.attr("disabled", true);
-        that.html(seconds+'s');
+        that.html(seconds + 's');
         let promise = new Promise((resolve, reject) => {
             let setTimer = setInterval(
                 () => {
                     seconds -= 1;
-                    that.html(seconds+'秒');
+                    that.html(seconds + '秒');
                     if (seconds <= 0) {
                         resolve(setTimer)
                     }
