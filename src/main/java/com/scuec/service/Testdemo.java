@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import java.io.IOException;
-import java.io.InputStream;
+
 
 public class Testdemo {
     public static void main(String[] args) throws IOException {

@@ -53,7 +53,7 @@
 </head>
 
 <body class="text-center">
-<%--提示尚未登录信息--%>
+<%--提示重复登录信息--%>
 <%if (request.getAttribute("msg") != null) {%>
 <script>
     alert("<%=request.getAttribute("msg")%>");
@@ -68,12 +68,12 @@
         <h1 class="h3 mb-3 fw-normal">请输入</h1>
         <div class="form-floating">
             <!-- 用户姓名输入框 -->
-            <input type="text" class="form-control" id="Username" name="username" placeholder="username">
+            <input type="text" class="form-control" id="Username" name="username" placeholder="username" onkeydown="KeyDown()">
             <label for="Username">Username</label>
         </div>
         <div class="form-floating">
             <!-- 用户密码输入框 -->
-            <input type="password" class="form-control" id="userPassword" name="password" placeholder="password">
+            <input type="password" class="form-control" id="userPassword" name="password" placeholder="password" onkeydown="KeyDown()">
             <label for="userPassword">Password</label>
         </div>
 
@@ -92,6 +92,29 @@
     </form>
     <!-- 表单结束 -->
 </main>
+
+<script>
+    function KeyDown() {
+        if (event.keyCode == 13) {
+            document.forms[0].submit();
+        }
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <%
 

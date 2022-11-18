@@ -6,6 +6,8 @@
 
 
     <insert id="addShop" parameterType="shop">
+/*新建不同的订单表，保存每一次的购物记录*/
+
         insert into bill(name,price,number) values(#{name},#{price},#{buyNum});
     </insert>
 

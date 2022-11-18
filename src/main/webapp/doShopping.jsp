@@ -135,8 +135,6 @@
                         sqlSession.commit();
                         sqlSession.close();
 
-
-
                     }
 
                 %>
