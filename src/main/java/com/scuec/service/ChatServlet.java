@@ -48,8 +48,27 @@ public class ChatServlet extends HttpServlet {
             list = new ArrayList<String>();
         }
         list.add(record);
+        //响应
+        renderData(response, "success");
+
+
+
         application.setAttribute("input_textarea", list);
         request.getRequestDispatcher("input.jsp").forward(request, response);
 
+    }
+
+    //重写list的toString方法
+    public String toString() {
+        return record;
+    }
+
+    protected void renderData(HttpServletResponse response, String data){
+        try {
+            response.setContentType("text/plain;charset=UTF-8");
+            response.getWriter().write(data);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
