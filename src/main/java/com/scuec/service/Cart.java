@@ -64,7 +64,6 @@ public class Cart {
      */
     public void removeGoods(Integer id){
         car.remove(id);
-
     }
 
     /**

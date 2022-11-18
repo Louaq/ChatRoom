@@ -9,6 +9,6 @@ public interface ShopMapper {
     List<Shop> selectShops();
     Shop selectById(int id);
 
-
+    int addShop(Shop shop);
 
 }

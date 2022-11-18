@@ -5,12 +5,25 @@
 <mapper namespace="com.scuec.service.mapper.ShopMapper">
 
 
+    <insert id="addShop" parameterType="shop">
+        insert into bill(name,price,number) values(#{name},#{price},#{buyNum});
+    </insert>
+
+
     <select id="selectShops" resultType="shop">
         select * from goods;
     </select>
     <select id="selectById" resultType="shop">
         select * from goods where id = #{id};
     </select>
+
+
+
+
+
+
+
+
 
 
 </mapper>

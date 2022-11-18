@@ -1,7 +1,13 @@
 <%@ page import="com.scuec.service.Cart" %>
 <%@ page import="java.util.Map" %>
 <%@ page import="com.scuec.service.Shop" %>
-<%@ page import="java.util.HashMap" %><%--
+<%@ page import="java.util.HashMap" %>
+<%@ page import="org.apache.ibatis.session.SqlSession" %>
+<%@ page import="org.apache.ibatis.session.SqlSessionFactoryBuilder" %>
+<%@ page import="org.apache.ibatis.session.SqlSessionFactory" %>
+<%@ page import="org.apache.ibatis.io.Resources" %>
+<%@ page import="java.io.InputStream" %>
+<%@ page import="com.scuec.service.mapper.ShopMapper" %><%--
   Created by IntelliJ IDEA.
   User: YangYang
   Date: 2022/11/6
@@ -116,6 +122,21 @@
                         out.println("<td colspan='4'>总价：" + total + "</td>");
                         out.println("</tr>");
                         out.println("</table>");
+
+                        /*将商品信息写入数据库*/
+                        String resource = "mybatis-config.xml";
+                        InputStream inputStream = Resources.getResourceAsStream(resource);
+                        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+                        SqlSession sqlSession = sqlSessionFactory.openSession();
+                        ShopMapper shopMapper = sqlSession.getMapper(ShopMapper.class);
+                        for (Map.Entry<Integer, Shop> entry : car.entrySet()) {
+                            shopMapper.addShop(entry.getValue());
+                        }
+                        sqlSession.commit();
+                        sqlSession.close();
+
+
+
                     }
 
                 %>
@@ -126,6 +147,7 @@
                     orderNum = String.valueOf(System.currentTimeMillis());
                     out.println("订单编号：" + orderNum);
                 %>
+
             </div>
         </div>
     </div>
