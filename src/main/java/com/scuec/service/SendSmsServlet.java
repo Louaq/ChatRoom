@@ -4,7 +4,6 @@ import com.alibaba.fastjson2.JSONObject;
 import com.zhenzi.sms.ZhenziSmsClient;
 
 import javax.servlet.*;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.HashMap;
