@@ -14,7 +14,7 @@
     <title>register</title>
     <script src="jquery-3.5.1/jquery-3.5.1.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <%--    <script src="//unpkg.com/vue@2/dist/vue.js"></script>--%>
+    <script src="//unpkg.com/vue@2/dist/vue.js"></script>
     <style>
         .modal-sheet .modal-dialog {
             width: 380px;
@@ -60,23 +60,15 @@
                         <label for="newPassword">Password</label>
                     </div>
 
-
-
-
                     <%--验证码--%>
-                    <div class="form-floating mb-3">
+                    <div class="form-floating mb-3" id="app">
                         <input type="text" class="form-control rounded-3" id="newCode" placeholder="code"
                                name="verifyCode">
                         <label for="newCode">code</label>
-                        <button type="button" class="sendVerifyCode">获取验证码</button>
-
+                        <el-row style="margin-top: 5px;margin-left: 287px">
+                            <el-button type="success" class="sendVerifyCode">获取验证码</el-button>
+                        </el-row>
                     </div>
-
-
-
-
-
-
 
                     <!-- 提交按钮 -->
                     <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary sub-btn" type="submit">注册</button>
@@ -89,19 +81,19 @@
         </div>
     </div>
 </div>
-<%--<!-- 引入样式 -->
+<!-- 引入样式 -->
 <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 <!-- 引入组件库 -->
-<script src="https://unpkg.com/element-ui/lib/index.js"></script>--%>
-<%--<script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
     new Vue({
         el: '#app',
         data: function () {
             return {visible: false}
         }
     })
-</script>--%>
-<%--将数据username转发到testServlet，使得testServlet可以获取到username--%>
+</script>
+
 
 <script>
     //发送验证码
@@ -160,35 +152,7 @@
         });
     })
 
-
-
-
-
-
 </script>
-
-
-<%--<script>
-
-
-    function sendVerifyCode() {
-
-        <%
-
-             testCode testCode = new testCode();
-             try {
-                 String code = testCode.send();
-                 session.setAttribute("code", code);
-             }
-                catch (Exception e) {
-                 throw new RuntimeException(e);
-             }
-
-        %>
-
-    }
-
-</script>--%>
 
 </body>
 </html>
