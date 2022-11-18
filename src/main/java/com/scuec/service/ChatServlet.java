@@ -48,8 +48,8 @@ public class ChatServlet extends HttpServlet {
             list = new ArrayList<String>();
         }
         list.add(record);
-        //响应
-        renderData(response, "success");
+        //防止中文乱码
+        renderData(response, record);
 
 
 

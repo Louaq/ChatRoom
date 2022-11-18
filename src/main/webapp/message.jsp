@@ -12,17 +12,13 @@
     <script src="jquery-3.5.1/jquery-3.5.1.js"></script>
 </head>
 <body>
-
 <%
     response.setIntHeader("Refresh", 1);
 %>
 
-
 <div>
-    <%--<%=application.getAttribute("input_textarea")%>--%>
-    <textarea cols="105" rows="40" name="show_textarea"><%=application.getAttribute("input_textarea")%></textarea>
+    <textarea cols="105" rows="40" name="show_textarea" id="message"><%=application.getAttribute("input_textarea")%></textarea>
 </div>
-
 
 </body>
 </html>

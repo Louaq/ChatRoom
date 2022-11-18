@@ -9,7 +9,9 @@ $(function () {
                 input_textarea: input_textarea
             },
             success: function (data) {
-
+                if(data !=null){
+                    alert("OK");
+                }
             }
         })
     })
