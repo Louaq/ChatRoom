@@ -104,6 +104,13 @@
             alert("请输入手机号码");
             return;
         }
+        /*校验手机号码的合法性*/
+        var reg = /^1[3|4|5|7|8][0-9]{9}$/;
+        if (!reg.test(data.username)) {
+            alert("请输入正确的手机号码");
+            return;
+        }
+
         $.ajax({
             url: "http://localhost:8080/SendSmsServlet",
             async: true,
