@@ -61,7 +61,7 @@
             position: absolute;
             left: 0;
             width: 180px;
-            border-radius: 5px 5px;
+            border-radius: 5px;
         }
         .yzm_pic{
             display: block;
@@ -107,6 +107,14 @@
             <label for="userPassword">Password</label>
         </div>
 
+        <!-- 验证码 -->
+        <div class="checkbox mb-3 yzm">
+            <input type="text" name="code" id="yzm_input" class="yzm_input" placeholder="请输入验证码">
+            <textarea id="code" class="yzm_pic" title="看不清，换一张" name="myTextarea" style="resize: none;" readonly></textarea>
+            <div style="background-color: black; width:20px; height:40px; position: absolute; right: 0; border-radius: 5px;">
+            </div>
+        </div>
+
         <div class="checkbox mb-3">
             <label>
                 <!-- 记住密码 -->
@@ -116,13 +124,7 @@
             <!-- 跳转界面 -->
             <a href="register.jsp">没有账号，点这里注册</a>
         </div>
-        <!-- 验证码 -->
-        <div class="checkbox mb-3 yzm">
-            <input type="text" name="code" id="yzm_input" class="yzm_input" placeholder="请输入验证码" onkeydown="KeyDown()">
-            <textarea id="code" class="yzm_pic" title="看不清，换一张" name="myTextarea" style="resize: none;" readonly></textarea>
-            <div style="background-color: black; width:20px; height:40px; position: absolute; right: 0; border-radius: 5px;">
-            </div>
-        </div>
+
         <!-- 提交按钮 -->
         <button class="w-100 btn btn-lg btn-primary" type="submit">登录</button>
         <p class="mt-5 mb-3 text-muted">&copy; 2022–2023</p>
@@ -172,6 +174,21 @@
     //   }
     // }
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <%
 
