@@ -25,7 +25,7 @@
     <div class="container">
         <h1 class="mt-5">Login failed</h1><br>
         <h3>登录失败</h3><br>
-        <p class="lead">请仔细检查你的用户名或者密码，确认无误后再次尝试登录。</p>
+        <p class="lead">请仔细检查你的用户名、密码或者验证码填写是否正确，确认无误后再次尝试登录。</p>
         <p><a href="login.jsp">点击此处</a> 返回登录界面</p>
     </div>
 </main>
