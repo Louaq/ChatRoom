@@ -118,7 +118,7 @@
         </div>
         <!-- 验证码 -->
         <div class="checkbox mb-3 yzm">
-            <input type="text" name="code" id="yzm_input" class="yzm_input" placeholder="请输入验证码">
+            <input type="text" name="code" id="yzm_input" class="yzm_input" placeholder="请输入验证码" onkeydown="KeyDown()">
             <textarea id="code" class="yzm_pic" title="看不清，换一张" name="myTextarea" style="resize: none;" readonly></textarea>
             <div style="background-color: black; width:20px; height:40px; position: absolute; right: 0; border-radius: 5px;">
             </div>
@@ -172,21 +172,6 @@
     //   }
     // }
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <%
 
