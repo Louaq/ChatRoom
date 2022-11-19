@@ -64,11 +64,13 @@
     </dependency>
 
     <!--tomcat9-->
+<!--
     <dependency>
       <groupId>org.opoo.maven</groupId>
       <artifactId>tomcat9-maven-plugin</artifactId>
       <version>3.0.1</version>
     </dependency>
+-->
     <dependency>
       <groupId>javax.servlet.jsp</groupId>
       <artifactId>jsp-api</artifactId>
@@ -89,7 +91,7 @@
 
   <build>
     <finalName>ChatRoom</finalName>
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+    <pluginManagement>
       <plugins>
         <!--tomcat9插件-->
         <plugin>
@@ -105,12 +107,12 @@
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.1.0</version>
         </plugin>
+
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-resources-plugin</artifactId>
           <version>3.0.2</version>
         </plugin>
-        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
