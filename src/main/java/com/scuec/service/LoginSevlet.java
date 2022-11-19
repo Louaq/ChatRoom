@@ -11,6 +11,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.net.URLEncoder;
 
 import static java.lang.System.out;
@@ -28,6 +29,10 @@ public class LoginSevlet extends HttpServlet {
         //防止乱码
         response.setContentType("text/html;charset=utf-8");
         request.setCharacterEncoding("utf-8");
+
+        // 获取验证码
+        String str1 = request.getParameter("code");
+        String str2 = request.getParameter("myTextarea");
 
         //获取复选框数据
         String remember = request.getParameter("remember");
@@ -51,51 +56,51 @@ public class LoginSevlet extends HttpServlet {
         User user = userMapper.selectUser(username, password);
 
 
-        //判断用户名和密码是否正确
-        if (user != null) {
-            //判断是否勾选了记住密码
-            if ("true".equals(remember)) {
-                //判断是否已经存在cookie
-                Cookie[] cookies = request.getCookies();
-                boolean flag = false;
-                if (cookies != null && cookies.length > 0) {
-                    for (Cookie cookie : cookies) {
-                        String name = cookie.getName();
-                        if ("username".equals(name)) {
-                            flag = true;
-                            break;
+        //判断用户名和密码是否正确 判断验证码是否正确
+        if (user != null && str1.equals(str2)){
+                //判断是否勾选了记住密码
+                if ("true".equals(remember)) {
+                    //判断是否已经存在cookie
+                    Cookie[] cookies = request.getCookies();
+                    boolean flag = false;
+                    if (cookies != null && cookies.length > 0) {
+                        for (Cookie cookie : cookies) {
+                            String name = cookie.getName();
+                            if ("username".equals(name)) {
+                                flag = true;
+                                break;
+                            }
                         }
                     }
-                }
-                if (!flag) {
-                    //创建cookie
-                    //对用户名和密码进行编码，防止cookie中文乱码
-                    username = URLEncoder.encode(username, "UTF-8");
-                    password = URLEncoder.encode(password, "UTF-8");
-                    //1.创建Cookie对象
-                    Cookie c1 = new Cookie("username", username);
-                    Cookie c2 = new Cookie("password", password);
+                    if (!flag) {
+                        //创建cookie
+                        //对用户名和密码进行编码，防止cookie中文乱码
+                        username = URLEncoder.encode(username, "UTF-8");
+                        password = URLEncoder.encode(password, "UTF-8");
+                        //1.创建Cookie对象
+                        Cookie c1 = new Cookie("username", username);
+                        Cookie c2 = new Cookie("password", password);
 
 
-                    //2.设置Cookie的存活时间
-                    c1.setMaxAge(60 * 60 * 24 * 30);
-                    c2.setMaxAge(60 * 60 * 24 * 30);
+                        //2.设置Cookie的存活时间
+                        c1.setMaxAge(60 * 60 * 24 * 30);
+                        c2.setMaxAge(60 * 60 * 24 * 30);
 
-                    //3.发送Cookie
-                    response.addCookie(c1);
-                    response.addCookie(c2);
+                        //3.发送Cookie
+                        response.addCookie(c1);
+                        response.addCookie(c2);
 
 /*                  System.out.println(URLDecoder.decode(username, "UTF-8"));
                     System.out.println(URLDecoder.decode(password, "UTF-8"));*/
+                    }
+
                 }
 
-            }
+                //登录成功,转发到主聊天界面Select.jsp选择页面，用户名存储到上下文中
+                request.getServletContext().setAttribute("nameSession", username);
 
-            //登录成功,转发到主聊天界面Select.jsp选择页面，用户名存储到上下文中
-            request.getServletContext().setAttribute("nameSession", username);
-
-            /*request.getSession().setAttribute("nameSession", username);*/
-            request.getRequestDispatcher("/Select.jsp").forward(request, response);
+                /*request.getSession().setAttribute("nameSession", username);*/
+                request.getRequestDispatcher("/Select.jsp").forward(request, response);
 
         } else {
             //登录失败,转发到error.jsp，重新登录
