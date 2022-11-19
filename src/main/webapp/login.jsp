@@ -106,12 +106,12 @@
         <div class="form-floating">
             <!-- 用户姓名输入框 -->
             <input type="text" class="form-control" id="Username" name="username" placeholder="username" onkeydown="KeyDown()">
-            <label for="Username">Username</label>
+            <label for="Username">手机号或用户名</label>
         </div>
         <div class="form-floating">
             <!-- 用户密码输入框 -->
             <input type="password" class="form-control" id="userPassword" name="password" placeholder="password" onkeydown="KeyDown()">
-            <label for="userPassword">Password</label>
+            <label for="userPassword">密码</label>
         </div>
 
         <!-- 验证码 -->

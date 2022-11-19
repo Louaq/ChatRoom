@@ -51,20 +51,20 @@
                         <!-- 新用户 -->
                         <input type="text" class="form-control rounded-3" id="newUser" placeholder="name@example.com"
                                name="username">
-                        <label for="newUser">Your name</label>
+                        <label for="newUser">手机号</label>
                     </div>
                     <div class="form-floating mb-3">
                         <!-- 新密码 -->
                         <input type="password" class="form-control rounded-3" id="newPassword" placeholder="Password"
                                name="password">
-                        <label for="newPassword">Password</label>
+                        <label for="newPassword">密码</label>
                     </div>
 
                     <%--验证码--%>
                     <div class="form-floating mb-3" id="app">
                         <input type="text" class="form-control rounded-3" id="newCode" placeholder="code"
                                name="verifyCode">
-                        <label for="newCode">code</label>
+                        <label for="newCode">验证码</label>
                         <el-row style="margin-top: 5px;margin-left: 287px">
                             <el-button type="success" class="sendVerifyCode">获取验证码</el-button>
                         </el-row>
