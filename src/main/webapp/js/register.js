@@ -78,7 +78,7 @@ $(function () {
             let setTimer = setInterval(
                 () => {
                     seconds -= 1;
-                    that.html(seconds + '√Î');
+                    that.html(seconds + 's');
                     if (seconds <= 0) {
                         resolve(setTimer)
                     }
