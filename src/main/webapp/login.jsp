@@ -90,6 +90,13 @@
 </script>
 <%}%>
 
+<%--提示 您尚未登录，请登录--%>
+<%if (request.getAttribute("login_msg") != null) {%>
+<script>
+    alert("<%=request.getAttribute("login_msg")%>");
+</script>
+<%}%>
+
 
 <main class="form-signin w-100 m-auto">
     <!-- 表单开始 -->
