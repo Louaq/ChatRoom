@@ -118,8 +118,7 @@
         <div class="checkbox mb-3 yzm">
             <input type="text" name="code" id="yzm_input" class="yzm_input" placeholder="请输入验证码">
             <textarea id="code" class="yzm_pic" title="看不清，换一张" name="myTextarea" style="resize: none;" readonly></textarea>
-            <div class="picCover">
-            </div>
+            <div class="picCover"></div>
         </div>
 
         <div class="checkbox mb-3">
