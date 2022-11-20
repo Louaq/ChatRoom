@@ -37,6 +37,7 @@ $(".sendVerifyCode").on("click", function () {
 //ajax提交数据
 $(".sub-btn").on("click", function () {
     var data = {};
+    var result;
     data.username = $.trim($("input[name=username]").val());
     data.password = $.trim($("input[name=password]").val());
     data.Code = $.trim($("input[name=verifyCode]").val());
@@ -55,14 +56,17 @@ $(".sub-btn").on("click", function () {
     $.ajax({
         url: "http://localhost:8080/Register",
         async: true,
-        type: "POST",
+        type: "post",
         dataType: "text",
         data: data,
         success: function (data) {
-            if (data === 'success') {
+            if (data === "success") {
                 alert("注册成功");
-                return;
+                window.location.href = "http://localhost:8080/login.jsp";
+            } else {
+                alert("注册失败");
             }
+
         }
     });
 })

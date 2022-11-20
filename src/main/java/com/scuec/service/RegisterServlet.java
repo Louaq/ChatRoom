@@ -14,6 +14,10 @@ import java.io.InputStream;
 
 @WebServlet("/Register")
 public class RegisterServlet extends HttpServlet {
+
+    public RegisterServlet() {
+        super();
+    }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         this.doPost(request, response);
@@ -34,34 +38,45 @@ public class RegisterServlet extends HttpServlet {
         //获取session中的验证码
         String verifyCode = (String) request.getSession().getAttribute("verifyCode");
 
-        //判断验证码是否正确
-        if (Code.equalsIgnoreCase(verifyCode)) {
+        //注册之前先判断用户名是否存在，防止重复注册
+        String resource = "mybatis-config.xml";
+        InputStream inputStream = Resources.getResourceAsStream(resource);
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        User newUser = userMapper.selectUserByName(username);
+        if (newUser != null) {
+            request.setAttribute("register_msg", "用户名已存在");
+            request.getRequestDispatcher("/login.jsp").forward(request, response);
+            return;
+        }
+
+        //判断验证码是否正确和用户名是否存在
+        if (Code.equalsIgnoreCase(verifyCode) ) {
             HttpSession session = request.getSession();
             session.setAttribute("username", username);
             session.setAttribute("password", password);
-            //响应结果
-            this.renderData(response, "success");
+
 
             User user = new User();
             user.setUsername(username);
             user.setPassword(password);
             String type = "user";
             user.setType(type);
-
-            //将用户信息存入数据库
-            String resource = "mybatis-config.xml";
-            InputStream inputStream = Resources.getResourceAsStream(resource);
-            SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-            SqlSession sqlSession = sqlSessionFactory.openSession();
-            UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-            int i = userMapper.insertUser(user);
+            String resource2 = "mybatis-config.xml";
+            InputStream inputStream2 = Resources.getResourceAsStream(resource2);
+            SqlSessionFactory sqlSessionFactory2 = new SqlSessionFactoryBuilder().build(inputStream2);
+            SqlSession sqlSession2 = sqlSessionFactory2.openSession();
+            UserMapper userMapper2 = sqlSession2.getMapper(UserMapper.class);
+            int i = userMapper2.insertUser(user);
             //提交事务
-            sqlSession.commit();
-            sqlSession.close();
-            //返回登录页面
-            response.sendRedirect(request.getContextPath() + "/login.jsp");
+            sqlSession2.commit();
+            sqlSession2.close();
+            //提示注册成功
+            System.out.println("注册成功");
+            renderData(response, "success");
         } else {
-            request.setAttribute("msg", "验证码错误");
+            request.setAttribute("msg", "验证码错误或用户名已存在");
             request.getRequestDispatcher("/register.jsp").forward(request, response);
             return;
         }

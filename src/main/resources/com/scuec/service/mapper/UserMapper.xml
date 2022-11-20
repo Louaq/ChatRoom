@@ -9,6 +9,9 @@
     <select id="selectUser" resultType="user">
         select * from user where username = #{username} and password = #{password};
     </select>
+    <select id="selectUserByName" resultType="user">
+        select * from user where username = #{username};
+    </select>
 
     <insert id="insertUser" parameterType="user">
         insert into user(username,password,type) values(#{username},#{password},#{type});

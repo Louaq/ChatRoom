@@ -33,14 +33,15 @@ public class ChatServlet extends HttpServlet {
         //中文乱码
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
+
         String input_textarea = request.getParameter("input_textarea");
         Date now = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String time = dateFormat.format(now);
         //获取名字，名字存在ServletContext中
         ServletContext servletContext = this.getServletContext();
-        String t = (String) servletContext.getAttribute("nameSession");
-        record += time + "  " + t + "  " + "说了：" + input_textarea + "\n";
+        String name = (String) servletContext.getAttribute("nameSession");
+        record += time + "  " + name + "  " + "说了：" + input_textarea + "\n";
 
         ServletContext application = this.getServletContext();  //获取application对象
         ArrayList<String> list = (ArrayList<String>) application.getAttribute("list");
@@ -48,10 +49,9 @@ public class ChatServlet extends HttpServlet {
             list = new ArrayList<String>();
         }
         list.add(record);
-        //防止中文乱码
+
+        //响应成功的数据
         renderData(response, record);
-
-
 
         application.setAttribute("input_textarea", list);
         request.getRequestDispatcher("input.jsp").forward(request, response);

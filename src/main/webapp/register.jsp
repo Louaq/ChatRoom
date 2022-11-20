@@ -35,6 +35,14 @@
     </style>
 </head>
 <body>
+<%--显示注册成功信息--%>
+<%
+    String message = (String) request.getAttribute("register_msg");
+    if (message != null) {
+        out.println("<script>alert('" + message + "')</script>");
+    }
+
+%>
 <br><br><br><br><br><br><br>
 <div class="modal modal-signin position-static d-block  py-5" tabindex="-1" role="dialog" id="modalSignin">
     <div class="modal-dialog" role="document">
