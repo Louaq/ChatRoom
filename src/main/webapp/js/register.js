@@ -60,12 +60,7 @@ $(".sub-btn").on("click", function () {
         dataType: "text",
         data: data,
         success: function (data) {
-            if (data === "success") {
-                alert("×¢²á³É¹¦");
-                window.location.href = "http://localhost:8080/login.jsp";
-            } else {
-                alert("×¢²áÊ§°Ü");
-            }
+            window.location.href = "http://localhost:8080/login.jsp";
 
         }
     });
