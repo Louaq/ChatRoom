@@ -1,7 +1,7 @@
 # ChatRoom聊天室
 > JavaWeb实验
 
->项目演示地址：http://www.yangyang197.top 用户名：aaa   密码：aaa
+>项目演示地址：8.219.247.147:8080 用户名：aaa   密码：aaa
 
 
 
