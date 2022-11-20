@@ -3,7 +3,7 @@ $(".sendVerifyCode").on("click", function () {
     var data = {};
     data.username = $("#newUser").val();
     if (data.username === '') {
-        alert("请输入手机号码");
+        alert("please input phone number");
         return;
     }
 
@@ -17,7 +17,7 @@ $(".sendVerifyCode").on("click", function () {
     /*校验手机号码的合法性*/
     var reg = /^1(3\d|4[5-9]|5[0-35-9]|6[2567]|7[0-8]|8\d|9[0-35-9])\d{8}$/;
     if (!reg.test(data.username)) {
-        alert("请输入正确的手机号码");
+        alert("please input correct phone number");
         return;
     }
 
@@ -37,30 +37,34 @@ $(".sendVerifyCode").on("click", function () {
 //ajax提交数据
 $(".sub-btn").on("click", function () {
     var data = {};
-    var result;
     data.username = $.trim($("input[name=username]").val());
     data.password = $.trim($("input[name=password]").val());
     data.Code = $.trim($("input[name=verifyCode]").val());
     if (data.username == '') {
-        alert("请输入手机号码");
+        alert("please input phone number");
         return;
     }
     if (data.password == '') {
-        alert("请输入密码");
+        alert("please input password");
         return;
     }
     if (data.Code == '') {
-        alert("请输入验证码");
+        alert("please input verify code");
         return;
     }
     $.ajax({
         url: "http://localhost:8080/Register",
-        async: true,
+        async: false,
         type: "post",
         dataType: "text",
         data: data,
         success: function (data) {
-            window.location.href = "http://localhost:8080/login.jsp";
+            if (data === 'success') {
+                alert("register successfully");
+                window.location.href = "http://localhost:8080/login.jsp";
+            } else {
+                alert("register failed");
+            }
 
         }
     });
