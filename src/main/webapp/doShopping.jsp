@@ -17,7 +17,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>购物车</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <style>
         .bd-placeholder-img {

@@ -11,7 +11,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>register</title>
+    <title>注册</title>
     <script src="jquery-3.5.1/jquery-3.5.1.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="//unpkg.com/vue@2/dist/vue.js"></script>

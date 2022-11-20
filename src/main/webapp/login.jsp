@@ -11,7 +11,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <title>login</title>
+    <title>登录</title>
     <script src="jquery-3.5.1/jquery-3.5.1.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/signin.css">

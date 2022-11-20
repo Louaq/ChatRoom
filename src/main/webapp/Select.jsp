@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>select</title>
+    <title>选择</title>
     <link rel="stylesheet" href="css/style.css" />
 <%--    <style>
         body {
