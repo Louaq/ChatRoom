@@ -52,6 +52,10 @@
                         <input type="text" class="form-control rounded-3" id="newUser" placeholder="name@example.com"
                                name="username">
                         <label for="newUser">手机号</label>
+
+                        <div class="form-floating mb-3">
+                            <div id="checkNumber"></div>
+                        </div>
                     </div>
                     <div class="form-floating mb-3">
                         <!-- 新密码 -->
@@ -59,6 +63,22 @@
                                name="password">
                         <label for="newPassword">密码</label>
                     </div>
+                    <%--显示密码的强弱程度--%>
+                    <div class="form-floating mb-3">
+                        <div id="passwordStrength"></div>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <!-- 确认密码 -->
+                        <input type="password" class="form-control rounded-3" id="confirmPassword" placeholder="Password"
+                               name="password2">
+                        <label for="confirmPassword">确认密码</label>
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <div id="confirmPw"></div>
+                    </div>
+
 
                     <%--验证码--%>
                     <div class="form-floating mb-3" id="app">
@@ -94,7 +114,7 @@
     })
 </script>
 
-<script src="js/register.js"></script>
+<script src="js/register.js" charset="gbk"></script>
 
 
 </body>
