@@ -158,7 +158,7 @@
 <div class="container py-3">
     <header>
         <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
-            <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+            <a href="http://localhost:8080/Select.jsp" class="d-flex align-items-center text-dark text-decoration-none">
                 <!-- 商品名称部分 -->
                 <span class="fs-4" style="margin-left: 5px;">Buyer Forum</span>
             </a>

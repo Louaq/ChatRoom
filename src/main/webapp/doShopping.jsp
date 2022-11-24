@@ -19,6 +19,7 @@
 <head>
     <title>购物车</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -119,7 +120,7 @@
                             total += entry.getValue().getPrice() * entry.getValue().getBuyNum();
                         }
                         out.println("<tr>");
-                        out.println("<td colspan='4'>总价：" + total + "</td>");
+                        out.println("<td colspan='4' id='total'>总价：" + total + "</td>");
                         out.println("</tr>");
                         out.println("</table>");
 
@@ -145,16 +146,22 @@
                     orderNum = String.valueOf(System.currentTimeMillis());
                     out.println("订单编号：" + orderNum);
                 %>
-
             </div>
         </div>
     </div>
+
+    <%--付款按钮--%>
+    <div id="app" style="margin-left: 782px;margin-top: 10px">
+        <el-button @click="visible = true" onclick="Payment()">付款</el-button>
+    </div>
+
+
 </div>
 
 <div class="container">
     <footer class="py-3 my-4">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+            <li class="nav-item"><a href="Select.jsp" class="nav-link px-2 text-muted">Home</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
@@ -165,6 +172,28 @@
 </div>
 
 <script src="js/bootstrap.bundle.min.js"></script>
+<!-- import Vue before Element -->
+<script src="https://unpkg.com/vue@2/dist/vue.js"></script>
+<!-- import JavaScript -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
 
+
+<script>
+    function Payment(){
+        var total = document.getElementById("total").innerText;
+        console.log(total);
+    }
+
+
+
+</script>
+<script>
+    new Vue({
+        el: '#app',
+        data: function() {
+            return { visible: false }
+        }
+    })
+</script>
 </body>
 </html>
