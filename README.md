@@ -6,8 +6,9 @@
 
 
 ![1](https://user-images.githubusercontent.com/74131522/199643208-3d54e517-668f-4882-a033-119701d37669.jpg)
-![Uploading wallhaven-rdwjj7_1920x1080.png…]()
 
+
+![wallhaven-rdwjj7_1920x1080](https://user-images.githubusercontent.com/74131522/203736098-71a6bf4c-cee9-48b2-b1ad-14b189751575.png)
 
 >技术栈：Servlet+JSP+Mybatis+JavaBean+Bootstrap+Element UI
 
