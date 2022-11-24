@@ -10,11 +10,18 @@
 <head>
     <title>input</title>
     <script src="jquery-3.5.1/jquery-3.5.1.js"></script>
+    <style>
+        #input_Text{
+            width: 100%;
+            font-size: large;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 <div>
 
-    <textarea cols="105" rows="1" name="input_textarea"></textarea><br>
+    <textarea cols="" rows="2" name="input_textarea" id="input_Text"></textarea><br>
     <input type="submit" value="发送" name="button_one"
            style="width: 100px; height: 40px;font-size: 25px;margin-top: 10px;margin-left:315px"><br>
 </div>

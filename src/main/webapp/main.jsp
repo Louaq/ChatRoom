@@ -285,8 +285,9 @@
 
     <div class="navbar-nav">
         <div class="nav-item text-nowrap">
-            <button class="nav-link px-4 bg-white" style="border-radius: 5px;"><span>
-                    style="color: black; font-size: 16px; font-family: 'fangsong';">退出登录</span></button>
+            <button class="nav-link px-4 bg-white" style="border-radius: 5px;">
+                <span style="color: black; font-size: 16px; font-family: 'fangsong';">退出登录</span>
+            </button>
         </div>
     </div>
 </header>

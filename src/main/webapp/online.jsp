@@ -4,6 +4,13 @@
 <head>
     <title>online</title>
     <script src="jquery-3.5.1/jquery-3.5.1.js"></script>
+    <style>
+        div{
+            font-weight: bold;
+            text-align: center;
+            font-size: large;
+        }
+    </style>
 </head>
 <body>
 <div>
