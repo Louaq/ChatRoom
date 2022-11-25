@@ -9,6 +9,7 @@
     <title>欢迎使用Buyer Forum聊天室</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="jquery-3.5.1/jquery-3.5.1.js"></script>
     <style>
         .container {
             width: auto;
@@ -281,11 +282,11 @@
 
 <!-- 导航栏头部开始 -->
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">Online Chat-room</a>
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="Select.jsp">Online Chat-room</a>
 
     <div class="navbar-nav">
         <div class="nav-item text-nowrap">
-            <button class="nav-link px-4 bg-white" style="border-radius: 5px;">
+            <button class="nav-link px-4 bg-white" style="border-radius: 5px;" id="quitLogin">
                 <span style="color: black; font-size: 16px; font-family: 'fangsong';">退出登录</span>
             </button>
         </div>
@@ -321,6 +322,32 @@
         <span style="color: #fff;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&copy;&nbsp;2022&nbsp;&nbsp; </span>
     </div>
 </footer>
+
+<%--退出登录--%>
+<script>
+    var quitLogin = document.getElementById("quitLogin");
+    /*获取当前登录的用户名*/
+
+
+    var username = "<%=application.getAttribute("nameSession")%>";
+    quitLogin.onclick = function(){
+        $.post({
+            url:"quitLogin",
+            type:"post",
+            data:{
+                "username":username
+            },
+            success:function (data) {
+                if(data == "success"){
+                    alert("退出成功");
+                    window.location.href = "login.jsp";
+                }else{
+                    alert("退出失败");
+                }
+            }
+        })
+    }
+</script>
 
 
 
