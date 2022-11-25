@@ -29,5 +29,14 @@
     <textarea cols="" rows="40" name="show_textarea" id="message"><%=application.getAttribute("input_textarea")%></textarea>
 </div>
 
+<%--<script>--%>
+<%--    var url = window.location.href;--%>
+<%--    var time = new Date();--%>
+<%--    // document.write(time);--%>
+
+<%--    setTimeout(function (){--%>
+<%--        window.location.href=url;--%>
+<%--    },10);--%>
+<%--</script>--%>
 </body>
 </html>

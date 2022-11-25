@@ -80,9 +80,9 @@
             height: 500px;
         }
 
-        #makeBig {
-            height: 200px;
-        }
+        /*#makeBig {*/
+        /*    height: 200px;*/
+        /*}*/
 
         .massageIn {
             position: relative;
@@ -95,7 +95,7 @@
 
         /* 输入框样式 */
         .massageIn iframe {
-            margin-top: 2px;
+            /*margin-top: 2px;*/
             width: 100%;
             height: 90px;
             border: #727272 solid 2px;
@@ -104,28 +104,28 @@
         }
 
         /* 发送按钮 */
-        .massageIn button {
-            width: 100px;
-            height: 40px;
-            font-size: 22px;
-            font-family: 'kaiti';
-            font-weight: 700;
-            position: absolute;
-            left: 50%;
-            top: 70%;
-            transform: translateX(-50%);
-            border-radius: 10px;
-            background-color: ivory;
-        }
+        /*.massageIn button {*/
+        /*    width: 100px;*/
+        /*    height: 40px;*/
+        /*    font-size: 22px;*/
+        /*    font-family: 'kaiti';*/
+        /*    font-weight: 700;*/
+        /*    position: absolute;*/
+        /*    left: 50%;*/
+        /*    top: 70%;*/
+        /*    transform: translateX(-50%);*/
+        /*    border-radius: 10px;*/
+        /*    background-color: ivory;*/
+        /*}*/
 
         body {
             font-size: .875rem;
         }
 
-        .feather {
-            width: 16px;
-            height: 16px;
-        }
+        /*.feather {*/
+        /*    width: 16px;*/
+        /*    height: 16px;*/
+        /*}*/
 
         /*
      * Sidebar
@@ -282,14 +282,6 @@
 <!-- 导航栏头部开始 -->
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
     <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" href="#">Online Chat-room</a>
-
-    <div class="navbar-nav">
-        <div class="nav-item text-nowrap">
-            <button class="nav-link px-4 bg-white" style="border-radius: 5px;">
-                <span style="color: black; font-size: 16px; font-family: 'fangsong';">退出登录</span>
-            </button>
-        </div>
-    </div>
 </header>
 <!-- 导航栏头部结束 -->
 
