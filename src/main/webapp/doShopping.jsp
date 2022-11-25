@@ -151,7 +151,7 @@
     </div>
 
     <%--付款按钮--%>
-    <div id="app" style="margin-left: 782px;margin-top: 10px">
+    <div id="app" style="margin-left: 707px;margin-top: 10px">
         <el-button @click="visible = true" onclick="Payment()">付款</el-button>
     </div>
 
@@ -162,10 +162,10 @@
     <footer class="py-3 my-4">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
             <li class="nav-item"><a href="Select.jsp" class="nav-link px-2 text-muted">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+            <li class="nav-item"><a href="Select.jsp" class="nav-link px-2 text-muted">Features</a></li>
+            <li class="nav-item"><a href="Select.jsp" class="nav-link px-2 text-muted">Pricing</a></li>
+            <li class="nav-item"><a href="Select.jsp" class="nav-link px-2 text-muted">FAQs</a></li>
+            <li class="nav-item"><a href="Select.jsp" class="nav-link px-2 text-muted">About</a></li>
         </ul>
         <p class="text-center text-muted">&copy; 2022 Company, Inc</p>
     </footer>
@@ -179,19 +179,18 @@
 
 
 <script>
-    function Payment(){
+    function Payment() {
         var total = document.getElementById("total").innerText;
-        console.log(total);
+        alert("付款成功，" + total + "元");
     }
-
 
 
 </script>
 <script>
     new Vue({
         el: '#app',
-        data: function() {
-            return { visible: false }
+        data: function () {
+            return {visible: false}
         }
     })
 </script>
