@@ -328,15 +328,14 @@
     var quitLogin = document.getElementById("quitLogin");
     /*获取当前登录的用户名*/
 
-
-    var username = "<%=application.getAttribute("nameSession")%>";
+/*    var username = "<%=application.getAttribute("nameSession")%>";*/
     quitLogin.onclick = function(){
         $.post({
             url:"quitLogin",
             type:"post",
-            data:{
+/*            data:{
                 "username":username
-            },
+            },*/
             success:function (data) {
                 if(data == "success"){
                     alert("退出成功");

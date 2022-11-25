@@ -98,6 +98,7 @@ public class LoginSevlet extends HttpServlet {
 
                 //登录成功,转发到主聊天界面Select.jsp选择页面，用户名存储到上下文中
                 request.getServletContext().setAttribute("nameSession", username);
+                request.getSession().setAttribute("name", username);
 
                 /*request.getSession().setAttribute("nameSession", username);*/
                 request.getRequestDispatcher("/Select.jsp").forward(request, response);

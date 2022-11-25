@@ -20,7 +20,7 @@ public class loginFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         //判断用户是否重复登录,如果重复登录,则不能登录
         HttpServletRequest req = (HttpServletRequest) servletRequest;
-        String user = (String) req.getServletContext().getAttribute("nameSession");
+        String user = (String) req.getSession().getAttribute("name");
         if (user != null && user.equals(req.getParameter("username"))) {
             //存储错误信息，转发到登录页面
             req.setAttribute("msg", "您已经登录过了，无需重复登录");
