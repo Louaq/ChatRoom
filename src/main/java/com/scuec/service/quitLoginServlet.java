@@ -15,9 +15,14 @@ public class quitLoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //获取用户名
+        String username = request.getParameter("username");
+        //销毁context域中username的值
+        request.getServletContext().removeAttribute(username);
 
+/*
         //销毁context域中的nameSession
-        request.getServletContext().removeAttribute("nameSession");
+        request.getServletContext().removeAttribute("nameSession");*/
 
         //返回值
         response.setContentType("text/html;charset=utf-8");
