@@ -10,6 +10,15 @@
 <head>
     <title>message</title>
     <script src="jquery-3.5.1/jquery-3.5.1.js"></script>
+    <style>
+        #message{
+            width: 100%;
+            font-size: large;
+            font-weight: bold;
+            font-family: 'kaiti';
+
+        }
+    </style>
 </head>
 <body>
 <%
@@ -17,7 +26,7 @@
 %>
 
 <div>
-    <textarea cols="105" rows="40" name="show_textarea" id="message"><%=application.getAttribute("input_textarea")%></textarea>
+    <textarea cols="" rows="40" name="show_textarea" id="message"><%=application.getAttribute("input_textarea")%></textarea>
 </div>
 
 </body>
