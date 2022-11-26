@@ -11,7 +11,7 @@
 
 ![wallhaven](https://user-images.githubusercontent.com/74131522/203738027-a21246de-3f62-43e0-8506-97583068e48e.png)
 
->技术栈：Servlet+JSP+Mybatis+JavaBean+Bootstrap+Element UI
+>技术栈：Servlet+JSP+Mybatis+JavaBean+Bootstrap+Element UI+Vue
 
 
 # 数据库
