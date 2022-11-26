@@ -338,10 +338,9 @@
             },*/
             success:function (data) {
                 if(data == "success"){
-                    alert("退出成功");
                     window.location.href = "login.jsp";
                 }else{
-                    alert("退出失败");
+
                 }
             }
         })

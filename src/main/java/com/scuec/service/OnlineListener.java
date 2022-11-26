@@ -4,6 +4,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
@@ -33,24 +34,24 @@ public class OnlineListener implements ServletContextListener,
     //监听Session对象
     @Override
     public void sessionCreated(HttpSessionEvent se) {
-        //获取Application对象中的计数器
-        ServletContext sc = se.getSession().getServletContext();
-        int count=(int) sc.getAttribute("count");
-        //计数器自增
-        ++count;
-        //然后再将计数器存储到application中
-        sc.setAttribute("count", count);
+        System.out.println("sessionCreated");
+        HttpSession session = se.getSession();
+        ServletContext sc = session.getServletContext();
+        int count = (int) sc.getAttribute("count");
+        count++;
+        sc.setAttribute("count",count);
+
+
     }
 
     @Override
     public void sessionDestroyed(HttpSessionEvent se) {
-        // 获取Application对象中的计数器
-        ServletContext sc = se.getSession().getServletContext();
-        int count=(int) sc.getAttribute("count");
-        //计数器自增
-        --count;
-        //然后再将计数器存储到application中
-        sc.setAttribute("count", count);
+        System.out.println("sessionDestroyed");
+        HttpSession session = se.getSession();
+        ServletContext sc = session.getServletContext();
+        int count = (int) sc.getAttribute("count");
+        count--;
+        sc.setAttribute("count",count);
     }
 
 }
