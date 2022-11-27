@@ -40,8 +40,6 @@ public class RegisterServlet extends HttpServlet {
         String verifyCode = (String) request.getSession().getAttribute("verifyCode");
 
 
-
-
         //注册之前先判断用户名是否存在，防止重复注册
         String resource = "mybatis-config.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
@@ -57,7 +55,7 @@ public class RegisterServlet extends HttpServlet {
 
 
         //判断验证码是否正确和用户名是否存在
-        if(Code.equalsIgnoreCase(verifyCode)){
+        if (Code.equalsIgnoreCase(verifyCode)) {
             HttpSession session = request.getSession();
             session.setAttribute("username", username);
             session.setAttribute("password", password);
@@ -79,8 +77,7 @@ public class RegisterServlet extends HttpServlet {
 
             //给ajax返回数据success
             response.getWriter().write("success");
-        }
-        else{
+        } else {
             //给ajax返回数据error
             response.getWriter().write("error");
             request.getRequestDispatcher("/register.jsp").forward(request, response);

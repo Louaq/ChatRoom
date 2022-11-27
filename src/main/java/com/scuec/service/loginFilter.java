@@ -7,8 +7,6 @@ import java.io.IOException;
 
 
 
-
-
 @WebFilter("/login")
 public class loginFilter implements Filter {
     @Override

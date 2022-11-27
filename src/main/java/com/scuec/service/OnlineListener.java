@@ -34,19 +34,16 @@ public class OnlineListener implements ServletContextListener,
     //监听Session对象
     @Override
     public void sessionCreated(HttpSessionEvent se) {
-        System.out.println("sessionCreated");
         HttpSession session = se.getSession();
         ServletContext sc = session.getServletContext();
         int count = (int) sc.getAttribute("count");
         count++;
         sc.setAttribute("count",count);
 
-
     }
 
     @Override
     public void sessionDestroyed(HttpSessionEvent se) {
-        System.out.println("sessionDestroyed");
         HttpSession session = se.getSession();
         ServletContext sc = session.getServletContext();
         int count = (int) sc.getAttribute("count");

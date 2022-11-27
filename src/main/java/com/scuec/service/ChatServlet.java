@@ -8,9 +8,14 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * 处理聊天信息的Servlet
+ */
+
 @WebServlet("/ChatServlet")
 public class ChatServlet extends HttpServlet {
-    public String record = " ";
+    // 用于存储聊天记录
+    public String chat = " ";
 
     public ChatServlet() {
         super();
@@ -34,6 +39,7 @@ public class ChatServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
 
+        //获取聊天的内容
         String input_textarea = request.getParameter("input_textarea");
         Date now = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -41,34 +47,18 @@ public class ChatServlet extends HttpServlet {
         //获取名字，名字存在ServletContext中
         ServletContext servletContext = this.getServletContext();
         String name = (String) servletContext.getAttribute("nameSession");
-        record += time + "  " + name + "  " + "说了：" + input_textarea + "\n";
+        chat += name + " " + time + " " + input_textarea + "\n";
 
-        ServletContext application = this.getServletContext();  //获取application对象
-        ArrayList<String> list = (ArrayList<String>) application.getAttribute("list");
-        if (list == null) {
-            list = new ArrayList<String>();
-        }
-        list.add(record);
+        //获取application对象,将聊天内容放入application中
+        ServletContext application = this.getServletContext();
 
-        //响应成功的数据
-        renderData(response, record);
-
-        application.setAttribute("input_textarea", list);
+        application.setAttribute("input_textarea", chat);
         request.getRequestDispatcher("input.jsp").forward(request, response);
 
     }
-
-    //重写list的toString方法
+    //重写ArrayList的toString方法
     public String toString() {
-        return record;
+        return chat;
     }
 
-    protected void renderData(HttpServletResponse response, String data){
-        try {
-            response.setContentType("text/plain;charset=UTF-8");
-            response.getWriter().write(data);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }
