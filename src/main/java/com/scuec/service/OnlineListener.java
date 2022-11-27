@@ -42,6 +42,7 @@ public class OnlineListener implements ServletContextListener,
 
     }
 
+
     @Override
     public void sessionDestroyed(HttpSessionEvent se) {
         HttpSession session = se.getSession();
