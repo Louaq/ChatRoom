@@ -5,7 +5,6 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -15,7 +14,7 @@ import java.util.Date;
 @WebServlet("/ChatServlet")
 public class ChatServlet extends HttpServlet {
     // 用于存储聊天记录
-    public String chat = " ";
+    public String chat = "";
 
     public ChatServlet() {
         super();
@@ -47,7 +46,7 @@ public class ChatServlet extends HttpServlet {
         //获取名字，名字存在ServletContext中
         ServletContext servletContext = this.getServletContext();
         String name = (String) servletContext.getAttribute("nameSession");
-        chat += name + " " + time + " " + input_textarea + "\n";
+        chat += name + " " + "在" + " " + time + " " + "说了：" + input_textarea + "\n";
 
         //获取application对象,将聊天内容放入application中
         ServletContext application = this.getServletContext();
