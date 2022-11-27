@@ -73,6 +73,7 @@ public class RegisterServlet extends HttpServlet {
 
             //提交事务
             sqlSession2.commit();
+            //释放资源
             sqlSession2.close();
 
             //给ajax返回数据success
