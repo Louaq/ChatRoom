@@ -29,5 +29,15 @@
     <textarea cols="" rows="40" name="show_textarea" id="message"><%=application.getAttribute("input_textarea")%></textarea>
 </div>
 
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>

@@ -10,7 +10,8 @@ $(function () {
             },
             success: function (data) {
                 if(data !=null){
-                    alert("OK");
+                    //Çå³ıÊäÈë¿òÄÚÈİ
+                    $("textarea[name='input_textarea']").val("");
                 }
             }
         })
