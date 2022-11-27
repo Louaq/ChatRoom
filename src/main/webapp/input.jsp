@@ -16,14 +16,19 @@
             font-size: large;
             font-weight: bold;
         }
+        #sub_button{
+            width: 100px;
+            height: 40px;
+            font-size: 25px;
+            margin-left: 45%;
+        }
     </style>
 </head>
 <body>
 <div>
 
     <textarea cols="" rows="2" name="input_textarea" id="input_Text"></textarea><br>
-    <input type="submit" value="发送" name="button_one"
-           style="width: 100px; height: 40px;font-size: 25px;margin-top: 10px;margin-left:315px"><br>
+    <input type="submit" value="发送" name="button_one" id="sub_button"><br>
 </div>
 
 <script src="js/input.js"></script>
