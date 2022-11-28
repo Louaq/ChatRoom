@@ -7,6 +7,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Objects;
 
+/**
+ * 过滤器，过滤没有登录而直接访问的用户
+ */
 
 @WebFilter("/*")
 public class SafeFilter implements Filter {

@@ -5,6 +5,9 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
+/**
+ * 退出登录
+ */
 @WebServlet("/quitLogin")
 public class quitLoginServlet extends HttpServlet {
     @Override

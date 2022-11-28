@@ -1,5 +1,8 @@
 package com.scuec.service;
 
+/**
+ * 用户实体类，包括用id，户名，密码，类型
+ */
 public class User {
     private int id;
     private String username;
@@ -53,6 +56,7 @@ public class User {
         this.type = type;
     }
 
+    
     @Override
     public String toString() {
         return "User{" +

@@ -5,6 +5,9 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
+/**
+ * 实现加入购物车功能
+ */
 @WebServlet("/ShopServlet")
 public class ShopServlet extends HttpServlet {
     @Override

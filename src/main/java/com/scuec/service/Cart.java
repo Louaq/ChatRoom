@@ -14,6 +14,9 @@ import java.util.Map;
 
 import static java.lang.System.out;
 
+/**
+ * 购物车实体类
+ */
 public class Cart {
     /**
      * 保存商品信息

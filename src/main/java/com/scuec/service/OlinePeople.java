@@ -1,5 +1,8 @@
 package com.scuec.service;
 
+/**
+ * 在线人数实体类
+ */
 public class OlinePeople {
     private String sessionID;
     private String hostName;

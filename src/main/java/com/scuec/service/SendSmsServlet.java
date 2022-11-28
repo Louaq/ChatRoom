@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 发送验证码
+ */
 
 
 public class SendSmsServlet extends HttpServlet {

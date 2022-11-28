@@ -11,6 +11,9 @@ import javax.servlet.http.HttpSessionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 监听在线人数
+ */
 
 @WebServlet("/onlineListener")
 public class OnlineListener implements ServletContextListener, HttpSessionAttributeListener, HttpSessionListener {

@@ -12,6 +12,11 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * 注册功能，可以防止用户重复注册
+ */
+
+
 @WebServlet("/Register")
 public class RegisterServlet extends HttpServlet {
 

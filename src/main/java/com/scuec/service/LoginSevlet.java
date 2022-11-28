@@ -16,6 +16,9 @@ import java.net.URLEncoder;
 
 import static java.lang.System.out;
 
+/**
+ * 登录处理
+ */
 
 @WebServlet("/login")
 public class LoginSevlet extends HttpServlet {

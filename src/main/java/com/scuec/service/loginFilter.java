@@ -5,6 +5,9 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
+/**
+ * 登录过滤器，防止用户重复登录
+ */
 
 
 @WebFilter("/login")

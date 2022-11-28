@@ -1,5 +1,8 @@
 package com.scuec.service;
 
+/**
+ * 商品实体类
+ */
 public class Shop {
     private int id;
     private String name;

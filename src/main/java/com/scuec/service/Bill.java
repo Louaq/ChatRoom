@@ -1,5 +1,8 @@
 package com.scuec.service;
 
+/**
+ * 账单类
+ */
 public class Bill {
     private String name;
     private int price;

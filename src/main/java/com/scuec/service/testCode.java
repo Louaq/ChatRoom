@@ -4,6 +4,9 @@ import com.zhenzi.sms.ZhenziSmsClient;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 测试短信发送
+ */
 public class testCode{
     private String username;
 
