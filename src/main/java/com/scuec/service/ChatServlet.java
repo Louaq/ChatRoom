@@ -43,9 +43,11 @@ public class ChatServlet extends HttpServlet {
         Date now = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String time = dateFormat.format(now);
-        //获取名字，名字存在ServletContext中
-        ServletContext servletContext = this.getServletContext();
-        String name = (String) servletContext.getAttribute("nameSession");
+        //获取session的用户名
+        HttpSession session = request.getSession();
+        String name = (String) session.getAttribute("name");
+        /*ServletContext servletContext = this.getServletContext();
+        String name = (String) servletContext.getAttribute("nameSession");*/
         chat += name + " " + "在" + " " + time + " " + "说了：" + input_textarea + "\n";
 
         //获取application对象,将聊天内容放入application中

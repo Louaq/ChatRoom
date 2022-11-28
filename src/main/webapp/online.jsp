@@ -1,5 +1,7 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--使用jstl需要导相应的jar包--%>
 <html>
 <head>
     <title>online</title>
@@ -19,7 +21,31 @@
         response.setIntHeader("Refresh", 1);
 
     %>
-    在线人数：<%=application.getAttribute("count")%>人
+
+    <%--显示infoList的大小--%>
+<%--    <%
+        List<String> infoList = (List<String>) request.getServletContext().getAttribute("infoList");
+        if (infoList != null) {
+            out.println("当前在线人数：" + infoList.size());
+
+        }
+    %>--%>
+        <%
+            if(null != application.getAttribute("User")){
+                List<String> list = (List<String>)application.getAttribute("User");
+        %>
+        在线人数:<span><%=list.size() %></span><br>
+        <%
+            for(String s:list){
+        %>
+        <a>姓名：</a><%=s %><a>---->此时在线</a><br>
+
+        <%
+                }
+            }
+        %>
+
+
 </div>
 </body>
 </html>
