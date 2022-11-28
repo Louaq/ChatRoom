@@ -34,11 +34,11 @@
             if(null != application.getAttribute("User")){
                 List<String> list = (List<String>)application.getAttribute("User");
         %>
-        在线人数:<span><%=list.size() %></span><br>
+        当前在线人数:<span><%=list.size() %>人</span><br>
         <%
             for(String s:list){
         %>
-        <a>姓名：</a><%=s %><a>---->此时在线</a><br>
+        <a>用户：</a><%=s %><a>在线</a><br>
 
         <%
                 }
