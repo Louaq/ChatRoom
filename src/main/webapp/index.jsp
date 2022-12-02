@@ -138,6 +138,9 @@
                 class="text-white aStyle">&nbsp;Tuo Xiaodong&nbsp;</a>.</p>
     </footer>
 </div>
+<%--<script>
+    document.body.style.filter = 'grayscale(1)';
+</script>--%>
 
 
 </body>

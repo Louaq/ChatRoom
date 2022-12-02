@@ -66,9 +66,14 @@ public class SendSmsServlet extends HttpServlet {
                 return;
             }
             //将验证码存到session中,同时存入创建时间
-            HttpSession session = request.getSession();
-            session.setAttribute("verifyCode", verifyCode);
-            session.setAttribute("createTime", System.currentTimeMillis());
+            //创建上下文对象
+
+            ServletContext context = this.getServletContext();
+
+
+/*            HttpSession session = request.getSession();*/
+            context.setAttribute("verifyCode", verifyCode);
+            context.setAttribute("createTime", System.currentTimeMillis());
             renderData(response, "success");
         } catch (Exception e) {
             e.printStackTrace();

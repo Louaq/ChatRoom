@@ -59,27 +59,13 @@ public class OnlineListener implements ServletContextListener, HttpSessionAttrib
     }
 
     public void sessionCreated(HttpSessionEvent event) {
-        //人数加一
-/*        Integer count = (Integer) application.getAttribute("count");
-        if (count == null) {
-            count = 1;
-        } else {
-            count++;
-        }
-        application.setAttribute("count", count);*/
+
 
 
     }
 
     public void sessionDestroyed(HttpSessionEvent event) {
-        //人数减一
-/*        Integer count = (Integer) application.getAttribute("count");
-        if (count == null) {
-            count = 0;
-        } else {
-            count--;
-        }
-        application.setAttribute("count", count);*/
+
 
     }
 }

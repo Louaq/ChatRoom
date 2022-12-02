@@ -42,7 +42,11 @@ public class RegisterServlet extends HttpServlet {
         //获取输入框的验证码
         String Code = request.getParameter("Code");
         //获取session中的验证码
-        String verifyCode = (String) request.getSession().getAttribute("verifyCode");
+
+        ServletContext servletContext = request.getServletContext();
+        String verifyCode = (String) servletContext.getAttribute("verifyCode");
+/*
+        String verifyCode = (String) request.getSession().getAttribute("verifyCode");*/
 
 
         //注册之前先判断用户名是否存在，防止重复注册
@@ -61,9 +65,6 @@ public class RegisterServlet extends HttpServlet {
 
         //判断验证码是否正确和用户名是否存在
         if (Code.equalsIgnoreCase(verifyCode)) {
-            HttpSession session = request.getSession();
-            session.setAttribute("username", username);
-            session.setAttribute("password", password);
             User user = new User();
             user.setUsername(username);
             user.setPassword(password);
